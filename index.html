@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SAMUEL_FAWOLE | PORTFOLIO_OS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+/* ... (All previous styles included) ... */
+:root {
+  --bg: #0d0e18; --bg-panel: #12141f; --bg-card: #181a28; --bg-high: #1f2133;
+  --border: rgba(195,230,255,0.08); --border-mid: rgba(195,230,255,0.15);
+  --primary: #7fd0ff; --secondary: #c8a9ff; --tertiary: #7fffb8;
+  --text: #e2e1f1; --text-muted: #6b7080; --text-dim: #3d4154;
+  --font-mono: 'JetBrains Mono', monospace; --font-display: 'Syne', sans-serif;
+  --sidebar-w: 240px; --topbar-h: 40px; --bottombar-h: 28px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-mono); font-size: 13px; line-height: 1.6; overflow-x: hidden; }
+
+/* CRT/Scanline Effects */
+body::before { content: ''; position: fixed; inset: 0; background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,0.15) 50%); background-size: 100% 3px; pointer-events: none; z-index: 9999; }
+
+/* LAYOUT STRUCTURE */
+#topbar { position: fixed; top: 0; left: 0; right: 0; height: var(--topbar-h); background: rgba(25,27,42,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 16px; z-index: 1000; }
+#sidebar { position: fixed; top: var(--topbar-h); left: 0; width: var(--sidebar-w); height: calc(100vh - var(--topbar-h) - var(--bottombar-h)); background: var(--bg-panel); border-right: 1px solid var(--border); padding: 24px 20px; z-index: 900; }
+#main { margin-left: var(--sidebar-w); margin-top: var(--topbar-h); margin-bottom: var(--bottombar-h); padding: 64px 56px; max-width: 1100px; }
+
+/* PROJECT CARDS */
+.projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.project-card { background: var(--bg-card); padding: 24px; border: 1px solid var(--border); transition: all 0.3s; cursor: pointer; position: relative; }
+.project-card:hover { border-color: var(--primary); background: var(--bg-high); transform: translateY(-2px); }
+.project-tag { font-size: 9px; color: var(--primary); border: 1px solid rgba(127,208,255,0.2); padding: 2px 6px; margin-bottom: 12px; display: inline-block; }
+.project-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.project-desc { color: var(--text-muted); font-size: 12px; margin-bottom: 16px; }
+
+/* MODAL / TERMINAL OVERLAY */
+#terminal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 2000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+.terminal-window { width: min(700px, 90vw); background: #0a0b14; border: 1px solid var(--primary); box-shadow: 0 0 30px rgba(127,208,255,0.2); }
+.terminal-header { background: var(--bg-high); padding: 8px 16px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); }
+.terminal-body { padding: 24px; max-height: 70vh; overflow-y: auto; font-size: 13px; color: var(--text); }
+.close-btn { cursor: pointer; color: var(--text-dim); border: none; background: none; font-size: 18px; }
+.close-btn:hover { color: var(--primary); }
+
+/* ... (Animations from previous code) ... */
+@keyframes blink { 50% { opacity: 0; } }
+.cursor { display: inline-block; width: 8px; height: 15px; background: var(--primary); animation: blink 1s step-end infinite; }
+.status-running { color: var(--tertiary); }
+
+@media (max-width: 900px) {
+  #sidebar { display: none; } #main { margin-left: 0; padding: 20px; }
+  .projects-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header id="topbar">
+  <div class="topbar-left" style="color: var(--primary); font-weight: 700;">SAMUEL_FAWOLE_V1.0</div>
+  <nav style="display: flex; gap: 20px; font-size: 10px;">
+    <a href="#home" style="color: var(--text); text-decoration: none;">~/home</a>
+    <a href="#projects" style="color: var(--text); text-decoration: none;">~/projects</a>
+    <a href="#log" style="color: var(--text); text-decoration: none;">~/log</a>
+  </nav>
+</header>
+
+<aside id="sidebar">
+  <div style="margin-bottom: 30px;">
+    <div style="color: var(--primary); font-size: 12px; font-weight: 700;">ROOT@PORTFOLIO</div>
+    <div style="color: var(--text-dim); font-size: 10px;">UPTIME: <span id="uptime-counter">00:00:00</span></div>
+  </div>
+  <nav style="display: flex; flex-direction: column; gap: 10px;">
+    <a href="#home" style="color: var(--text-muted); text-decoration: none;">[0] HOME</a>
+    <a href="#projects" style="color: var(--text-muted); text-decoration: none;">[1] PROJECTS</a>
+    <a href="#skills" style="color: var(--text-muted); text-decoration: none;">[2] STACK</a>
+    <a href="#contact" style="color: var(--text-muted); text-decoration: none;">[3] CONTACT</a>
+  </nav>
+</aside>
+
+<main id="main">
+  <section id="home" style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center;">
+    <div style="color: var(--primary); margin-bottom: 10px;">/usr/bin/identity</div>
+    <h1 style="font-family: var(--font-display); font-size: clamp(40px, 8vw, 80px); line-height: 1;">
+      SAMUEL <span style="color: var(--primary);">FAWOLE</span><br/>
+      FULLSTACK & WEB3
+    </h1>
+    <div style="font-size: 18px; margin-top: 20px; color: var(--text-muted);">
+      <span style="color: var(--primary);">&gt;</span> <span id="typewriter"></span><span class="cursor"></span>
+    </div>
+  </section>
+
+  <section id="projects" style="padding: 100px 0;">
+    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 40px;">
+      <h2 style="font-family: var(--font-display); text-transform: uppercase; letter-spacing: 2px;">/projects</h2>
+      <span style="color: var(--text-dim); font-size: 10px;">CLICK_FOR_SOURCE</span>
+    </div>
+    
+    <div class="projects-grid">
+      <div class="project-card" onclick="openProject('vesting')">
+        <span class="project-tag">WEB3_CORE</span>
+        <h3 class="project-title">DeFi_Vesting_Protocols</h3>
+        <p class="project-desc">Production-ready smart contracts for vesting and crowdfunding. Built with security-first patterns.</p>
+        <div style="font-size: 10px; color: var(--secondary);">--solidity --foundry --openzeppelin</div>
+      </div>
+
+      <div class="project-card" onclick="openProject('docs')">
+        <span class="project-tag">FULLSTACK_INFRA</span>
+        <h3 class="project-title">Kaylabit_Docs_Engine</h3>
+        <p class="project-desc">Dynamic API documentation platform with RBAC security for internal engineering teams.</p>
+        <div style="font-size: 10px; color: var(--secondary);">--nextjs --typescript --rbac</div>
+      </div>
+
+      <div class="project-card" onclick="openProject('stripe')">
+        <span class="project-tag">ECOMMERCE</span>
+        <h3 class="project-title">Stripe_Marketplace</h3>
+        <p class="project-desc">End-to-end e-commerce delivery featuring high-security payment flows and Prisma backend.</p>
+        <div style="font-size: 10px; color: var(--secondary);">--prisma --postgresql --stripe</div>
+      </div>
+
+      <div class="project-card" onclick="openProject('hotel')">
+        <span class="project-tag">MERN_APP</span>
+        <h3 class="project-title">Booking_OS_V2</h3>
+        <p class="project-desc">A complete booking system with advanced filtering, auth, and admin management dashboard.</p>
+        <div style="font-size: 10px; color: var(--secondary);">--react --node --mongodb</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding: 100px 0;">
+    <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 40px;">
+      <h2 style="font-family: var(--font-display); margin-bottom: 20px;">/contact --init</h2>
+      <p style="color: var(--text-muted); margin-bottom: 30px;">Initialize a direct transmission. System will open your default mail client.</p>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+        <div>
+          <button class="form-btn" onclick="sendEmail()" style="width: 100%; padding: 15px; background: var(--bg-high); border: 1px solid var(--primary); color: var(--primary); cursor: pointer; font-family: var(--font-mono);">
+            INITIALIZE_EMAIL_CLIENT
+          </button>
+          <div style="margin-top: 20px; font-size: 11px; color: var(--text-dim);">
+            RECIPIENT: samuellfco@gmail.com<br/>
+            STATUS: ACTIVE
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+          <a href="https://linkedin.com/in/samuel-fawole-b089b7235/" target="_blank" style="color: var(--secondary); text-decoration: none;">[ LINKEDIN ]</a>
+          <a href="https://www.github.com/the-foundingengineer" target="_blank" style="color: var(--secondary); text-decoration: none;">[ GITHUB ]</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="terminal-overlay">
+  <div class="terminal-window">
+    <div class="terminal-header">
+      <span id="term-title" style="color: var(--primary); font-size: 11px;">PROJECT_DETAILS.SH</span>
+      <button class="close-btn" onclick="closeProject()">✕</button>
+    </div>
+    <div class="terminal-body" id="term-content">
+      </div>
+  </div>
+</div>
+
+<footer id="statusbar" style="position: fixed; bottom: 0; left: 0; right: 0; height: var(--bottombar-h); background: var(--bg-panel); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 16px; font-size: 10px;">
+  <span class="status-running">● SYSTEM_READY</span>
+  <span style="color: var(--text-dim);">V1.0.42_STABLE</span>
+</footer>
+
+<script>
+// Typewriter Effect
+const text = "Full-stack engineer building the open web & secure on-chain systems.";
+let index = 0;
+function type() {
+  if (index < text.length) {
+    document.getElementById('typewriter').textContent += text.charAt(index);
+    index++;
+    setTimeout(type, 50);
+  }
+}
+
+// Uptime Clock
+const start = Date.now();
+setInterval(() => {
+  const delta = Math.floor((Date.now() - start) / 1000);
+  const h = String(Math.floor(delta / 3600)).padStart(2, '0');
+  const m = String(Math.floor((delta % 3600) / 60)).padStart(2, '0');
+  const s = String(delta % 60).padStart(2, '0');
+  document.getElementById('uptime-counter').textContent = `${h}:${m}:${s}`;
+}, 1000);
+
+// Functional Email Link
+function sendEmail() {
+  const email = "samuelfawole@outlook.com";
+  const subject = "Portfolio Inquiry - Project Discussion";
+  const body = "Hi Samuel,\n\nI saw your portfolio and would like to discuss a potential project/opportunity.";
+  window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+// Project Gallery Logic
+const projectData = {
+  vesting: {
+    title: "DEFI_VESTING_PROTOCOL.LOG",
+    content: `<span style="color:var(--tertiary)">[INFO]</span> Initializing Technical Brief...<br><br>
+              <strong>OBJECTIVE:</strong> Build a secure, gas-optimized on-chain vesting system for token distribution.<br><br>
+              <strong>CORE TECH:</strong> Solidity, Foundry, OpenZeppelin.<br>
+              <strong>OUTCOME:</strong><br>
+              - Implemented custom release schedules (linear/cliff).<br>
+              - Reduced gas costs by 15% through storage optimization.<br>
+              - Zero security vulnerabilities found in internal audits.`
+  },
+  docs: {
+    title: "KAYLABIT_DOCS_ENGINE.LOG",
+    content: `<span style="color:var(--tertiary)">[INFO]</span> Accessing Documentation Infrastructure...<br><br>
+              <strong>OBJECTIVE:</strong> Create a secure hub for internal API documentation.<br><br>
+              <strong>CORE TECH:</strong> Next.js, TypeScript, Tailwind, RBAC Middleware.<br>
+              <strong>KEY FEATURES:</strong><br>
+              - Role-Based Access Control (RBAC) to protect sensitive endpoints.<br>
+              - Real-time MDX rendering for dynamic updates.<br>
+              - Integrated with internal microservices.`
+  },
+  stripe: {
+    title: "STRIPE_MARKETPLACE.LOG",
+    content: `<span style="color:var(--tertiary)">[INFO]</span> Loading Payment Infrastructure...<br><br>
+              <strong>OBJECTIVE:</strong> End-to-end e-commerce platform delivery.<br><br>
+              <strong>CORE TECH:</strong> Prisma, PostgreSQL, Stripe SDK, Next.js.<br>
+              <strong>ACHIEVEMENTS:</strong><br>
+              - Implemented Webhook listeners for secure order confirmation.<br>
+              - Scalable database schema designed for high-concurrency traffic.`
+  },
+  hotel: {
+    title: "BOOKING_OS.LOG",
+    content: `<span style="color:var(--tertiary)">[INFO]</span> Initializing MERN Stack Module...<br><br>
+              <strong>OBJECTIVE:</strong> Full-scale property management and booking system.<br><br>
+              <strong>CORE TECH:</strong> MongoDB, Express, React, Node.js.<br>
+              <strong>FEATURES:</strong><br>
+              - Complex filtering logic for property searches.<br>
+              - Admin dashboard for real-time inventory management.<br>
+              - JWT-based authentication system.`
+  }
+};
+
+function openProject(id) {
+  const data = projectData[id];
+  document.getElementById('term-title').textContent = data.title;
+  document.getElementById('term-content').innerHTML = data.content;
+  document.getElementById('terminal-overlay').style.display = 'flex';
+}
+
+function closeProject() {
+  document.getElementById('terminal-overlay').style.display = 'none';
+}
+
+// Close modal on 'Esc'
+window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeProject(); });
+
+window.onload = type;
+</script>
+
+</body>
+</html>
