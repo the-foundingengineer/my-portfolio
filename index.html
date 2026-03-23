@@ -1,264 +1,417 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+
+<html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SAMUEL_FAWOLE | PORTFOLIO_OS</title>
-
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SYS_BOOT_V1.0 | PORTFOLIO</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Be+Vietnam+Pro:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed-dim": "#d4bbff",
+                        "on-secondary": "#3d1b72",
+                        "secondary": "#d4bbff",
+                        "on-secondary-container": "#c8a9ff",
+                        "on-secondary-fixed": "#260058",
+                        "surface": "#12131d",
+                        "primary-container": "#7dcfff",
+                        "tertiary-fixed": "#dce1ff",
+                        "outline": "#899299",
+                        "primary-fixed": "#c5e7ff",
+                        "secondary-container": "#56378d",
+                        "primary-fixed-dim": "#7fd0ff",
+                        "on-primary-fixed": "#001e2d",
+                        "background": "#12131d",
+                        "error": "#ffb4ab",
+                        "primary": "#c3e6ff",
+                        "on-tertiary-fixed": "#0e193b",
+                        "tertiary-fixed-dim": "#bbc5f0",
+                        "surface-container-lowest": "#0c0d18",
+                        "inverse-surface": "#e2e1f1",
+                        "on-primary": "#00344a",
+                        "surface-container-highest": "#333440",
+                        "on-primary-container": "#00587a",
+                        "on-tertiary-container": "#465075",
+                        "on-tertiary": "#242f51",
+                        "secondary-fixed": "#ebdcff",
+                        "outline-variant": "#3f484e",
+                        "on-secondary-fixed-variant": "#54358a",
+                        "on-primary-fixed-variant": "#004c6a",
+                        "on-tertiary-fixed-variant": "#3b4569",
+                        "surface-dim": "#12131d",
+                        "inverse-on-surface": "#2f303b",
+                        "surface-variant": "#333440",
+                        "inverse-primary": "#00658c",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#1e1f2a",
+                        "surface-tint": "#7fd0ff",
+                        "tertiary-container": "#bac4ef",
+                        "on-surface-variant": "#bfc8cf",
+                        "on-error": "#690005",
+                        "surface-bright": "#383844",
+                        "error-container": "#93000a",
+                        "on-background": "#e2e1f1",
+                        "tertiary": "#dae0ff",
+                        "on-surface": "#e2e1f1",
+                        "surface-container-high": "#282935",
+                        "surface-container-low": "#1a1b26"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
 <style>
-/* ... (All previous styles included) ... */
-:root {
-  --bg: #0d0e18; --bg-panel: #12141f; --bg-card: #181a28; --bg-high: #1f2133;
-  --border: rgba(195,230,255,0.08); --border-mid: rgba(195,230,255,0.15);
-  --primary: #7fd0ff; --secondary: #c8a9ff; --tertiary: #7fffb8;
-  --text: #e2e1f1; --text-muted: #6b7080; --text-dim: #3d4154;
-  --font-mono: 'JetBrains Mono', monospace; --font-display: 'Syne', sans-serif;
-  --sidebar-w: 240px; --topbar-h: 40px; --bottombar-h: 28px;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--text); font-family: var(--font-mono); font-size: 13px; line-height: 1.6; overflow-x: hidden; }
-
-/* CRT/Scanline Effects */
-body::before { content: ''; position: fixed; inset: 0; background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,0.15) 50%); background-size: 100% 3px; pointer-events: none; z-index: 9999; }
-
-/* LAYOUT STRUCTURE */
-#topbar { position: fixed; top: 0; left: 0; right: 0; height: var(--topbar-h); background: rgba(25,27,42,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 16px; z-index: 1000; }
-#sidebar { position: fixed; top: var(--topbar-h); left: 0; width: var(--sidebar-w); height: calc(100vh - var(--topbar-h) - var(--bottombar-h)); background: var(--bg-panel); border-right: 1px solid var(--border); padding: 24px 20px; z-index: 900; }
-#main { margin-left: var(--sidebar-w); margin-top: var(--topbar-h); margin-bottom: var(--bottombar-h); padding: 64px 56px; max-width: 1100px; }
-
-/* PROJECT CARDS */
-.projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.project-card { background: var(--bg-card); padding: 24px; border: 1px solid var(--border); transition: all 0.3s; cursor: pointer; position: relative; }
-.project-card:hover { border-color: var(--primary); background: var(--bg-high); transform: translateY(-2px); }
-.project-tag { font-size: 9px; color: var(--primary); border: 1px solid rgba(127,208,255,0.2); padding: 2px 6px; margin-bottom: 12px; display: inline-block; }
-.project-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-.project-desc { color: var(--text-muted); font-size: 12px; margin-bottom: 16px; }
-
-/* MODAL / TERMINAL OVERLAY */
-#terminal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 2000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
-.terminal-window { width: min(700px, 90vw); background: #0a0b14; border: 1px solid var(--primary); box-shadow: 0 0 30px rgba(127,208,255,0.2); }
-.terminal-header { background: var(--bg-high); padding: 8px 16px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); }
-.terminal-body { padding: 24px; max-height: 70vh; overflow-y: auto; font-size: 13px; color: var(--text); }
-.close-btn { cursor: pointer; color: var(--text-dim); border: none; background: none; font-size: 18px; }
-.close-btn:hover { color: var(--primary); }
-
-/* ... (Animations from previous code) ... */
-@keyframes blink { 50% { opacity: 0; } }
-.cursor { display: inline-block; width: 8px; height: 15px; background: var(--primary); animation: blink 1s step-end infinite; }
-.status-running { color: var(--tertiary); }
-
-@media (max-width: 900px) {
-  #sidebar { display: none; } #main { margin-left: 0; padding: 20px; }
-  .projects-grid { grid-template-columns: 1fr; }
-}
-</style>
+        body {
+            background-color: #12131d;
+            background-image: 
+                linear-gradient(rgba(18, 19, 29, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: auto;
+        }
+        .grain-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Noise_Texture.png");
+            opacity: 0.02;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+        .flicker:hover { animation: flicker 0.05s infinite; }
+        @keyframes flicker { 
+            0% { opacity: 0.9; } 
+            50% { opacity: 0.8; } 
+            100% { opacity: 1; }
+        }
+        .text-glow { text-shadow: 0 0 8px rgba(195, 230, 255, 0.4); }
+    </style>
 </head>
-<body>
-
-<header id="topbar">
-  <div class="topbar-left" style="color: var(--primary); font-weight: 700;">SAMUEL_FAWOLE_V1.0</div>
-  <nav style="display: flex; gap: 20px; font-size: 10px;">
-    <a href="#home" style="color: var(--text); text-decoration: none;">~/home</a>
-    <a href="#projects" style="color: var(--text); text-decoration: none;">~/projects</a>
-    <a href="#log" style="color: var(--text); text-decoration: none;">~/log</a>
-  </nav>
-</header>
-
-<aside id="sidebar">
-  <div style="margin-bottom: 30px;">
-    <div style="color: var(--primary); font-size: 12px; font-weight: 700;">ROOT@PORTFOLIO</div>
-    <div style="color: var(--text-dim); font-size: 10px;">UPTIME: <span id="uptime-counter">00:00:00</span></div>
-  </div>
-  <nav style="display: flex; flex-direction: column; gap: 10px;">
-    <a href="#home" style="color: var(--text-muted); text-decoration: none;">[0] HOME</a>
-    <a href="#projects" style="color: var(--text-muted); text-decoration: none;">[1] PROJECTS</a>
-    <a href="#skills" style="color: var(--text-muted); text-decoration: none;">[2] STACK</a>
-    <a href="#contact" style="color: var(--text-muted); text-decoration: none;">[3] CONTACT</a>
-  </nav>
-</aside>
-
-<main id="main">
-  <section id="home" style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center;">
-    <div style="color: var(--primary); margin-bottom: 10px;">/usr/bin/identity</div>
-    <h1 style="font-family: var(--font-display); font-size: clamp(40px, 8vw, 80px); line-height: 1;">
-      SAMUEL <span style="color: var(--primary);">FAWOLE</span><br/>
-      FULLSTACK & WEB3
-    </h1>
-    <div style="font-size: 18px; margin-top: 20px; color: var(--text-muted);">
-      <span style="color: var(--primary);">&gt;</span> <span id="typewriter"></span><span class="cursor"></span>
-    </div>
-  </section>
-
-  <section id="projects" style="padding: 100px 0;">
-    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 40px;">
-      <h2 style="font-family: var(--font-display); text-transform: uppercase; letter-spacing: 2px;">/projects</h2>
-      <span style="color: var(--text-dim); font-size: 10px;">CLICK_FOR_SOURCE</span>
-    </div>
-    
-    <div class="projects-grid">
-      <div class="project-card" onclick="openProject('vesting')">
-        <span class="project-tag">WEB3_CORE</span>
-        <h3 class="project-title">DeFi_Vesting_Protocols</h3>
-        <p class="project-desc">Production-ready smart contracts for vesting and crowdfunding. Built with security-first patterns.</p>
-        <div style="font-size: 10px; color: var(--secondary);">--solidity --foundry --openzeppelin</div>
-      </div>
-
-      <div class="project-card" onclick="openProject('docs')">
-        <span class="project-tag">FULLSTACK_INFRA</span>
-        <h3 class="project-title">Kaylabit_Docs_Engine</h3>
-        <p class="project-desc">Dynamic API documentation platform with RBAC security for internal engineering teams.</p>
-        <div style="font-size: 10px; color: var(--secondary);">--nextjs --typescript --rbac</div>
-      </div>
-
-      <div class="project-card" onclick="openProject('stripe')">
-        <span class="project-tag">ECOMMERCE</span>
-        <h3 class="project-title">Stripe_Marketplace</h3>
-        <p class="project-desc">End-to-end e-commerce delivery featuring high-security payment flows and Prisma backend.</p>
-        <div style="font-size: 10px; color: var(--secondary);">--prisma --postgresql --stripe</div>
-      </div>
-
-      <div class="project-card" onclick="openProject('hotel')">
-        <span class="project-tag">MERN_APP</span>
-        <h3 class="project-title">Booking_OS_V2</h3>
-        <p class="project-desc">A complete booking system with advanced filtering, auth, and admin management dashboard.</p>
-        <div style="font-size: 10px; color: var(--secondary);">--react --node --mongodb</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" style="padding: 100px 0;">
-    <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 40px;">
-      <h2 style="font-family: var(--font-display); margin-bottom: 20px;">/contact --init</h2>
-      <p style="color: var(--text-muted); margin-bottom: 30px;">Initialize a direct transmission. System will open your default mail client.</p>
-      
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-        <div>
-          <button class="form-btn" onclick="sendEmail()" style="width: 100%; padding: 15px; background: var(--bg-high); border: 1px solid var(--primary); color: var(--primary); cursor: pointer; font-family: var(--font-mono);">
-            INITIALIZE_EMAIL_CLIENT
-          </button>
-          <div style="margin-top: 20px; font-size: 11px; color: var(--text-dim);">
-            RECIPIENT: samuellfco@gmail.com<br/>
-            STATUS: ACTIVE
-          </div>
+<body class="font-body text-on-surface selection:bg-primary selection:text-on-primary">
+<div class="grain-overlay"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 h-10 bg-[#333440] dark:bg-[#333440]/60 backdrop-blur-md shadow-none border-none rounded-none">
+<div class="text-sm font-mono text-[#c3e6ff] flex items-center gap-2 before:content-['[SYSTEM:OK]'] font-bold uppercase tracking-wider">
+            SAMUEL_FAWOLE_V1.0
         </div>
-        <div style="display: flex; flex-direction: column; gap: 15px;">
-          <a href="https://linkedin.com/in/samuel-fawole-b089b7235/" target="_blank" style="color: var(--secondary); text-decoration: none;">[ LINKEDIN ]</a>
-          <a href="https://www.github.com/the-foundingengineer" target="_blank" style="color: var(--secondary); text-decoration: none;">[ GITHUB ]</a>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<div id="terminal-overlay">
-  <div class="terminal-window">
-    <div class="terminal-header">
-      <span id="term-title" style="color: var(--primary); font-size: 11px;">PROJECT_DETAILS.SH</span>
-      <button class="close-btn" onclick="closeProject()">✕</button>
-    </div>
-    <div class="terminal-body" id="term-content">
-      </div>
-  </div>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-xs font-medium font-['Space_Grotesk'] uppercase tracking-wider text-[#c3e6ff] border-b border-[#c3e6ff] pb-1 transition-all duration-75 hover:bg-[#c3e6ff]/10" href="#home">HOME</a>
+<a class="text-xs font-medium font-['Space_Grotesk'] uppercase tracking-wider text-gray-400 font-normal hover:text-[#d4bbff] transition-colors hover:bg-[#c3e6ff]/10" href="#projects">PROJECTS</a>
+<a class="text-xs font-medium font-['Space_Grotesk'] uppercase tracking-wider text-gray-400 font-normal hover:text-[#d4bbff] transition-colors hover:bg-[#c3e6ff]/10" href="#skills">STACK</a>
+<a class="text-xs font-medium font-['Space_Grotesk'] uppercase tracking-wider text-gray-400 font-normal hover:text-[#d4bbff] transition-colors hover:bg-[#c3e6ff]/10" href="#log">LOGS</a>
+</nav>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#c3e6ff] text-sm hover:animate-pulse cursor-pointer">remove</span>
+<span class="material-symbols-outlined text-[#c3e6ff] text-sm hover:animate-pulse cursor-pointer">fullscreen</span>
+<span class="material-symbols-outlined text-[#c3e6ff] text-sm hover:animate-pulse cursor-pointer">close</span>
 </div>
-
-<footer id="statusbar" style="position: fixed; bottom: 0; left: 0; right: 0; height: var(--bottombar-h); background: var(--bg-panel); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 16px; font-size: 10px;">
-  <span class="status-running">● SYSTEM_READY</span>
-  <span style="color: var(--text-dim);">V1.0.42_STABLE</span>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="fixed left-0 top-10 h-[calc(100vh-64px)] w-64 hidden md:flex flex-col p-6 bg-[#1a1b26] dark:bg-[#1a1b26]/80 backdrop-blur-xl border-r border-[#333440]/20 z-40">
+<div class="mb-10">
+<div class="text-[#c3e6ff] font-bold text-lg font-['Space_Grotesk'] tracking-[0.05rem] uppercase mb-1">ROOT@PORTFOLIO</div>
+<div class="text-[10px] font-mono text-gray-500 uppercase">UPTIME: <span id="uptime-counter">00:00:00</span></div>
+</div>
+<nav class="flex flex-col gap-4 flex-grow">
+<a class="group flex items-center gap-3 text-[#c3e6ff] font-bold before:content-['&gt;'] before:mr-2 font-['Space_Grotesk'] uppercase tracking-[0.05rem] flicker" href="#home">
+<span class="material-symbols-outlined text-sm">folder</span>
+                ~/home
+            </a>
+<a class="group flex items-center gap-3 text-gray-500 hover:text-[#d4bbff] hover:translate-x-1 transition-transform font-['Space_Grotesk'] uppercase tracking-[0.05rem] flicker" href="#projects">
+<span class="material-symbols-outlined text-sm">terminal</span>
+                ~/projects
+            </a>
+<a class="group flex items-center gap-3 text-gray-500 hover:text-[#d4bbff] hover:translate-x-1 transition-transform font-['Space_Grotesk'] uppercase tracking-[0.05rem] flicker" href="#skills">
+<span class="material-symbols-outlined text-sm">code</span>
+                ~/skills
+            </a>
+<a class="group flex items-center gap-3 text-gray-500 hover:text-[#d4bbff] hover:translate-x-1 transition-transform font-['Space_Grotesk'] uppercase tracking-[0.05rem] flicker" href="#contact">
+<span class="material-symbols-outlined text-sm">terminal</span>
+                ~/contact
+            </a>
+</nav>
+<button class="mt-auto border border-outline-variant/20 py-3 px-4 text-xs font-bold uppercase tracking-widest text-secondary hover:bg-secondary hover:text-on-secondary transition-all">
+            EXECUTE_CONTACT
+        </button>
+</aside>
+<main class="md:ml-64 mt-10 mb-8 p-4 md:p-12 space-y-24">
+<!-- /whoami (Hero) -->
+<section class="min-h-[716px] flex flex-col justify-center" id="home">
+<div class="space-y-4 max-w-4xl">
+<div class="text-primary font-mono text-sm opacity-80 mb-2">/usr/bin/identity --verbose</div>
+<h1 class="text-5xl md:text-7xl font-headline font-bold text-on-surface leading-tight text-glow uppercase">
+                    SAMUEL <span class="text-primary">FAWOLE</span> <br/>
+                    SOFTWARE ENGINEER.
+                </h1>
+<div class="flex items-center gap-2 text-xl md:text-2xl font-body text-gray-400">
+<span class="text-primary font-mono">&gt;</span>
+<span>Building scalable, user-focused web applications.</span>
+<span class="w-3 h-8 bg-primary inline-block blink"></span>
+</div>
+</div>
+<!-- ASCII Art Decorative -->
+<pre class="mt-12 text-[8px] md:text-[10px] leading-[8px] text-outline-variant/30 font-mono select-none">                _____  ______ _______ __   __ _______ _______ _______ 
+               |     \|  ____|   |    \ / / |  |  | |  |  | |  |  |
+               |_____/|______|   |     |    |  |  | |  |  | |  |  |
+                                                                    
+               [0x74 0x65 0x72 0x6d 0x69 0x6e 0x61 0x6c 0x5f 0x72]
+            </pre>
+</section>
+<!-- /projects (Bento-Grid style with filesystem logic) -->
+<section class="space-y-8" id="projects">
+<div class="flex items-baseline justify-between border-b border-outline-variant/20 pb-2">
+<h2 class="text-2xl font-headline font-bold tracking-widest uppercase text-on-surface">/projects</h2>
+<span class="text-xs font-mono text-gray-500">TOTAL: 04 FILES</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-1">
+<!-- Project 01 -->
+<div class="md:col-span-8 bg-surface-container-low p-6 border border-outline-variant/20 hover:border-primary/50 transition-colors group">
+<div class="flex justify-between items-start mb-6">
+<div class="text-[10px] font-mono text-primary px-2 py-1 bg-primary/10">DIR: FULLSTACK_INFRA</div>
+<span class="material-symbols-outlined text-gray-600 group-hover:text-primary transition-colors">open_in_new</span>
+</div>
+<h3 class="text-3xl font-headline font-bold mb-4 uppercase">KAYLABIT_DOCS_ENGINE</h3>
+<p class="text-gray-400 mb-6 font-body leading-relaxed max-w-2xl">
+                        A dynamic API documentation platform with RBAC security for internal engineering teams. Built for inputting and formatting complex API docs with real-time editing.
+                    </p>
+<div class="flex flex-wrap gap-3 font-mono text-[11px] uppercase tracking-tighter">
+<span class="text-secondary">--nextjs</span>
+<span class="text-secondary">--typescript</span>
+<span class="text-secondary">--rbac</span>
+</div>
+</div>
+<!-- Project 02 -->
+<div class="md:col-span-4 bg-surface-container-high p-6 border border-outline-variant/20 flex flex-col justify-between">
+<div>
+<div class="text-[10px] font-mono text-secondary mb-4">FILE: MERN_APP</div>
+<h3 class="text-xl font-headline font-bold mb-2 uppercase">HOTEL_BOOKING_OS</h3>
+<p class="text-sm text-gray-500 font-body">Complete booking system with advanced filtering, JWT auth, and admin management dashboard.</p>
+</div>
+<div class="mt-8 font-mono text-[10px] text-gray-400">
+                        STATUS: PRODUCTION_READY
+                    </div>
+</div>
+<!-- Project 03 -->
+<div class="md:col-span-4 bg-surface-container-high p-6 border border-outline-variant/20 flex flex-col justify-between">
+<div>
+<div class="text-[10px] font-mono text-secondary mb-4">FILE: PRICE_TRACKER</div>
+<h3 class="text-xl font-headline font-bold mb-2 uppercase">PAYWISE_ENGINE</h3>
+<p class="text-sm text-gray-500 font-body">Full-stack application for crowdsourcing and analyzing real-time local market commodity prices.</p>
+</div>
+<div class="mt-8 font-mono text-[10px] text-gray-400">
+                        HASH: 0x4e21...fd91
+                    </div>
+</div>
+<!-- Project 04 -->
+<div class="md:col-span-8 bg-surface-container-low p-6 border border-outline-variant/20 flex flex-col md:flex-row gap-8 items-center">
+<div class="w-full md:w-1/2">
+<h3 class="text-xl font-headline font-bold mb-2 uppercase">DEFI_VESTING_V1</h3>
+<p class="text-sm text-gray-400 mb-4 font-body">Gas-optimized smart contracts for token distribution and crowdfunding. Implemented linear and cliff release schedules with Foundry.</p>
+<div class="flex gap-2">
+<span class="text-[10px] border border-outline-variant/40 px-2 py-1 uppercase font-mono">--solidity</span>
+<span class="text-[10px] border border-outline-variant/40 px-2 py-1 uppercase font-mono">--foundry</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- /skills (htop style) -->
+<section class="space-y-6" id="skills">
+<div class="flex items-baseline justify-between">
+<h2 class="text-2xl font-headline font-bold tracking-widest uppercase text-on-surface">/skills --top</h2>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/20 p-4 font-mono text-xs overflow-x-auto">
+<table class="w-full text-left">
+<thead class="text-gray-500 border-b border-outline-variant/20">
+<tr>
+<th class="pb-2 font-normal">PID</th>
+<th class="pb-2 font-normal">RESOURCE</th>
+<th class="pb-2 font-normal">LEVEL</th>
+<th class="pb-2 font-normal">LOAD_BAR</th>
+<th class="pb-2 font-normal">STATUS</th>
+</tr>
+</thead>
+<tbody class="text-gray-300">
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="py-3">001</td>
+<td class="text-primary">TypeScript / Python / PHP</td>
+<td>98.2%</td>
+<td><span class="text-primary">[||||||||||||||||||--]</span></td>
+<td class="text-emerald-500">RUNNING</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="py-3">002</td>
+<td class="text-primary">React / Next.js / Tailwind</td>
+<td>94.0%</td>
+<td><span class="text-primary">[|||||||||||||||||---]</span></td>
+<td class="text-emerald-500">RUNNING</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="py-3">003</td>
+<td class="text-primary">Node.js / Express / Hono / Bun</td>
+<td>92.4%</td>
+<td><span class="text-primary">[||||||||||||||||----]</span></td>
+<td class="text-emerald-500">RUNNING</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="py-3">004</td>
+<td class="text-secondary">Solidity / Hardhat / Foundry</td>
+<td>85.1%</td>
+<td><span class="text-secondary">[||||||||||||||------]</span></td>
+<td class="text-amber-500">STABLE</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="py-3">005</td>
+<td class="text-secondary">PostgreSQL / Redis / Docker</td>
+<td>88.5%</td>
+<td><span class="text-secondary">[||||||||||||||||----]</span></td>
+<td class="text-emerald-500">RUNNING</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- /log (Git log style) -->
+<section class="space-y-6" id="log">
+<h2 class="text-2xl font-headline font-bold tracking-widest uppercase text-on-surface">/log --graph</h2>
+<div class="space-y-8 relative pl-6 before:absolute before:left-0 before:top-2 before:bottom-0 before:w-px before:bg-outline-variant/30">
+<div class="relative">
+<span class="absolute -left-[30px] top-1 text-primary text-xl">*</span>
+<div class="flex items-center gap-4 text-xs font-mono mb-2">
+<span class="text-secondary">commit ad7f2c8</span>
+<span class="text-gray-500">SEP 2025 - PRESENT</span>
+</div>
+<h3 class="text-lg font-headline font-bold uppercase">Fullstack Developer @ Kaylabit</h3>
+<p class="text-sm text-gray-400 font-body mt-2">Building high-quality fintech AML platform UIs using React, TypeScript, and Tailwind. Collaborating on REST API integrations and core component library development.</p>
+</div>
+<div class="relative">
+<span class="absolute -left-[30px] top-1 text-gray-500 text-xl">|</span>
+<span class="absolute -left-[30px] top-8 text-secondary text-xl">*</span>
+<div class="flex items-center gap-4 text-xs font-mono mb-2">
+<span class="text-secondary">commit 4b12e91</span>
+<span class="text-gray-500">OCT 2024 - AUG 2025</span>
+</div>
+<h3 class="text-lg font-headline font-bold uppercase">Freelancer & Sole Fullstack Developer</h3>
+<p class="text-sm text-gray-400 font-body mt-2">Delivered end-to-end e-commerce solutions with Next.js, Stripe, and Prisma. Managed complete CI/CD pipelines and performance optimization.</p>
+</div>
+<div class="relative">
+<span class="absolute -left-[30px] top-1 text-gray-500 text-xl">|</span>
+<span class="absolute -left-[30px] top-8 text-gray-400 text-xl">*</span>
+<div class="flex items-center gap-4 text-xs font-mono mb-2">
+<span class="text-secondary">commit 90f4a2d</span>
+<span class="text-gray-500">JUL 2023 - OCT 2023</span>
+</div>
+<h3 class="text-lg font-headline font-bold uppercase">Founding Frontend Engineer</h3>
+<p class="text-sm text-gray-400 font-body mt-2">Solely designed and built the UI for a 1-on-1 tutoring platform. Implemented responsive designs and integrated frontend with core APIs.</p>
+</div>
+</div>
+</section>
+<!-- /contact -->
+<section class="pb-20" id="contact">
+<div class="bg-surface-container-low border border-outline-variant/20 p-8 md:p-12 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 font-mono text-[10px] text-outline-variant/20 rotate-90 origin-top-right">
+                    --easter-egg: "sudo rm -rf /"
+                </div>
+<h2 class="text-3xl font-headline font-bold mb-8 tracking-widest uppercase">/contact --init</h2>
+<div class="grid md:grid-cols-2 gap-12">
+<div class="space-y-6">
+<div class="space-y-1">
+<label class="block text-[10px] font-mono text-gray-500 uppercase">Input Command</label>
+<div class="flex items-center border-b border-outline-variant">
+<span class="text-primary font-mono mr-3">&gt;</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface w-full font-mono placeholder:text-outline-variant/40" placeholder="name@domain.com" type="text" value="samuellfco@gmail.com" readonly/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="block text-[10px] font-mono text-gray-500 uppercase">Message Buffer</label>
+<div class="flex items-start border-b border-outline-variant py-2">
+<span class="text-primary font-mono mr-3 mt-1">&gt;</span>
+<textarea class="bg-transparent border-none focus:ring-0 text-on-surface w-full font-mono placeholder:text-outline-variant/40 resize-none" placeholder="Initialize transmission..." rows="3"></textarea>
+</div>
+</div>
+<button onclick="window.location.href='mailto:samuellfco@gmail.com'" class="w-full bg-surface-container-highest border border-primary text-on-surface py-3 font-mono font-bold uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all flicker">
+                            PUSH_MESSAGE
+                        </button>
+</div>
+<div class="space-y-8 flex flex-col justify-center">
+<div>
+<div class="text-[10px] font-mono text-secondary uppercase mb-2">Public Key Fingerprint</div>
+<div class="font-mono text-xs text-gray-500 break-all leading-relaxed bg-surface-container-highest p-4 border border-outline-variant/10">
+                                4E21 9B73 A10C 2F0E D55B <br/>
+                                778A 01FC 33B4 22D0 FD91
+                            </div>
+</div>
+<div class="flex gap-6">
+<a class="text-xs font-mono text-primary hover:underline uppercase" href="https://github.com/the-foundingengineer" target="_blank">GitHub</a>
+<a class="text-xs font-mono text-primary hover:underline uppercase" href="https://www.linkedin.com/in/samuel-fawole-b089b7235/" target="_blank">LinkedIn</a>
+<a class="text-xs font-mono text-primary hover:underline uppercase" href="https://x.com/openedbakery" target="_blank">Twitter_X</a>
+</div>
+<div class="text-[10px] font-mono text-gray-600">
+                            HINT: Try typing <span class="text-secondary">--help</span> for secret params.
+                        </div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex items-center justify-between px-6 overflow-hidden bg-[#333440] h-8 font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-[#d4bbff] rounded-none shadow-none">
+<div class="flex gap-4">
+<span class="text-[#c3e6ff] animate-pulse">● LIVE_SYSTEM</span>
+<span class="text-gray-400">© 2026 SAMUEL FAWOLE. ALL RIGHTS RESERVED.</span>
+</div>
+<div class="flex gap-6">
+<a class="text-gray-400 hover:text-white transition-colors" href="https://github.com/the-foundingengineer" target="_blank">GITHUB</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="https://www.linkedin.com/in/samuel-fawole-b089b7235/" target="_blank">LINKEDIN</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="https://x.com/openedbakery" target="_blank">X_TWITTER</a>
+</div>
 </footer>
-
+<!-- Mobile Navigation (visible on small screens) -->
+<nav class="md:hidden fixed bottom-8 left-1/2 -translate-x-1/2 flex bg-surface-container-highest/80 backdrop-blur-md border border-outline-variant/30 px-6 py-3 gap-8 z-50">
+<a class="text-primary" href="#home"><span class="material-symbols-outlined">home</span></a>
+<a class="text-gray-400" href="#projects"><span class="material-symbols-outlined">terminal</span></a>
+<a class="text-gray-400" href="#skills"><span class="material-symbols-outlined">code</span></a>
+<a class="text-gray-400" href="#contact"><span class="material-symbols-outlined">mail</span></a>
+</nav>
 <script>
-// Typewriter Effect
-const text = "Full-stack engineer building the open web & secure on-chain systems.";
-let index = 0;
-function type() {
-  if (index < text.length) {
-    document.getElementById('typewriter').textContent += text.charAt(index);
-    index++;
-    setTimeout(type, 50);
-  }
-}
+    // Uptime Clock
+    const startTime = Date.now();
+    setInterval(() => {
+        const delta = Math.floor((Date.now() - startTime) / 1000);
+        const h = String(Math.floor(delta / 3600)).padStart(2, '0');
+        const m = String(Math.floor((delta % 3600) / 60)).padStart(2, '0');
+        const s = String(delta % 60).padStart(2, '0');
+        const counter = document.getElementById('uptime-counter');
+        if (counter) counter.textContent = `${h}:${m}:${s}`;
+    }, 1000);
 
-// Uptime Clock
-const start = Date.now();
-setInterval(() => {
-  const delta = Math.floor((Date.now() - start) / 1000);
-  const h = String(Math.floor(delta / 3600)).padStart(2, '0');
-  const m = String(Math.floor((delta % 3600) / 60)).padStart(2, '0');
-  const s = String(delta % 60).padStart(2, '0');
-  document.getElementById('uptime-counter').textContent = `${h}:${m}:${s}`;
-}, 1000);
-
-// Functional Email Link
-function sendEmail() {
-  const email = "samuelfawole@outlook.com";
-  const subject = "Portfolio Inquiry - Project Discussion";
-  const body = "Hi Samuel,\n\nI saw your portfolio and would like to discuss a potential project/opportunity.";
-  window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-
-// Project Gallery Logic
-const projectData = {
-  vesting: {
-    title: "DEFI_VESTING_PROTOCOL.LOG",
-    content: `<span style="color:var(--tertiary)">[INFO]</span> Initializing Technical Brief...<br><br>
-              <strong>OBJECTIVE:</strong> Build a secure, gas-optimized on-chain vesting system for token distribution.<br><br>
-              <strong>CORE TECH:</strong> Solidity, Foundry, OpenZeppelin.<br>
-              <strong>OUTCOME:</strong><br>
-              - Implemented custom release schedules (linear/cliff).<br>
-              - Reduced gas costs by 15% through storage optimization.<br>
-              - Zero security vulnerabilities found in internal audits.`
-  },
-  docs: {
-    title: "KAYLABIT_DOCS_ENGINE.LOG",
-    content: `<span style="color:var(--tertiary)">[INFO]</span> Accessing Documentation Infrastructure...<br><br>
-              <strong>OBJECTIVE:</strong> Create a secure hub for internal API documentation.<br><br>
-              <strong>CORE TECH:</strong> Next.js, TypeScript, Tailwind, RBAC Middleware.<br>
-              <strong>KEY FEATURES:</strong><br>
-              - Role-Based Access Control (RBAC) to protect sensitive endpoints.<br>
-              - Real-time MDX rendering for dynamic updates.<br>
-              - Integrated with internal microservices.`
-  },
-  stripe: {
-    title: "STRIPE_MARKETPLACE.LOG",
-    content: `<span style="color:var(--tertiary)">[INFO]</span> Loading Payment Infrastructure...<br><br>
-              <strong>OBJECTIVE:</strong> End-to-end e-commerce platform delivery.<br><br>
-              <strong>CORE TECH:</strong> Prisma, PostgreSQL, Stripe SDK, Next.js.<br>
-              <strong>ACHIEVEMENTS:</strong><br>
-              - Implemented Webhook listeners for secure order confirmation.<br>
-              - Scalable database schema designed for high-concurrency traffic.`
-  },
-  hotel: {
-    title: "BOOKING_OS.LOG",
-    content: `<span style="color:var(--tertiary)">[INFO]</span> Initializing MERN Stack Module...<br><br>
-              <strong>OBJECTIVE:</strong> Full-scale property management and booking system.<br><br>
-              <strong>CORE TECH:</strong> MongoDB, Express, React, Node.js.<br>
-              <strong>FEATURES:</strong><br>
-              - Complex filtering logic for property searches.<br>
-              - Admin dashboard for real-time inventory management.<br>
-              - JWT-based authentication system.`
-  }
-};
-
-function openProject(id) {
-  const data = projectData[id];
-  document.getElementById('term-title').textContent = data.title;
-  document.getElementById('term-content').innerHTML = data.content;
-  document.getElementById('terminal-overlay').style.display = 'flex';
-}
-
-function closeProject() {
-  document.getElementById('terminal-overlay').style.display = 'none';
-}
-
-// Close modal on 'Esc'
-window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeProject(); });
-
-window.onload = type;
+    // Typing Effect for Hero (optional upgrade if you want it dynamic)
+    /*
+    const heroText = "Building scalable, user-focused web applications.";
+    let i = 0;
+    const typingSpan = document.querySelector('#home .text-xl span:last-of-type');
+    typingSpan.textContent = "";
+    function type() {
+        if (i < heroText.length) {
+            typingSpan.textContent += heroText.charAt(i);
+            i++;
+            setTimeout(type, 50);
+        }
+    }
+    window.onload = type;
+    */
 </script>
-
-</body>
-</html>
+</body></html>
