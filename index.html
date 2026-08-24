@@ -3,416 +3,290 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SYS_BOOT_V1.0 | PORTFOLIO</title>
+<title>Samuel Fawole | Systems that get businesses more customers</title>
+<meta name="description" content="I build web and AI systems that turn visitors into leads and leads into revenue — for real estate, edtech, legal, and fintech businesses."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Be+Vietnam+Pro:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "secondary-fixed-dim": "#d4bbff",
-                        "on-secondary": "#3d1b72",
-                        "secondary": "#d4bbff",
-                        "on-secondary-container": "#c8a9ff",
-                        "on-secondary-fixed": "#260058",
-                        "surface": "#12131d",
-                        "primary-container": "#7dcfff",
-                        "tertiary-fixed": "#dce1ff",
-                        "outline": "#899299",
-                        "primary-fixed": "#c5e7ff",
-                        "secondary-container": "#56378d",
-                        "primary-fixed-dim": "#7fd0ff",
-                        "on-primary-fixed": "#001e2d",
-                        "background": "#12131d",
-                        "error": "#ffb4ab",
-                        "primary": "#c3e6ff",
-                        "on-tertiary-fixed": "#0e193b",
-                        "tertiary-fixed-dim": "#bbc5f0",
-                        "surface-container-lowest": "#0c0d18",
-                        "inverse-surface": "#e2e1f1",
-                        "on-primary": "#00344a",
-                        "surface-container-highest": "#333440",
-                        "on-primary-container": "#00587a",
-                        "on-tertiary-container": "#465075",
-                        "on-tertiary": "#242f51",
-                        "secondary-fixed": "#ebdcff",
-                        "outline-variant": "#3f484e",
-                        "on-secondary-fixed-variant": "#54358a",
-                        "on-primary-fixed-variant": "#004c6a",
-                        "on-tertiary-fixed-variant": "#3b4569",
-                        "surface-dim": "#12131d",
-                        "inverse-on-surface": "#2f303b",
-                        "surface-variant": "#333440",
-                        "inverse-primary": "#00658c",
-                        "on-error-container": "#ffdad6",
-                        "surface-container": "#1e1f2a",
-                        "surface-tint": "#7fd0ff",
-                        "tertiary-container": "#bac4ef",
-                        "on-surface-variant": "#bfc8cf",
-                        "on-error": "#690005",
-                        "surface-bright": "#383844",
-                        "error-container": "#93000a",
-                        "on-background": "#e2e1f1",
-                        "tertiary": "#dae0ff",
-                        "on-surface": "#e2e1f1",
-                        "surface-container-high": "#282935",
-                        "surface-container-low": "#1a1b26"
-                    },
-                    fontFamily: {
-                        "headline": ["Space Grotesk"],
-                        "body": ["Be Vietnam Pro"],
-                        "label": ["Space Grotesk"]
-                    },
-                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
-                },
-            },
-        }
-    </script>
-<style>
-        body {
-            background-color: #12131d;
-            background-image: 
-                linear-gradient(rgba(18, 19, 29, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            background-size: 100% 2px, 3px 100%;
-            pointer-events: auto;
-        }
-        .grain-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Noise_Texture.png");
-            opacity: 0.02;
-            pointer-events: none;
-            z-index: 9999;
-        }
-        .blink { animation: blink 1s step-end infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
-        .flicker:hover { animation: flicker 0.05s infinite; }
-        @keyframes flicker { 
-            0% { opacity: 0.9; } 
-            50% { opacity: 0.8; } 
-            100% { opacity: 1; }
-        }
-        .text-glow { text-shadow: 0 0 8px rgba(195, 230, 255, 0.4); }
-    </style>
+<script id="tailwind-config" src="assets/theme.js"></script>
+<link rel="stylesheet" href="assets/site.css"/>
 </head>
 <body class="font-body text-on-surface selection:bg-primary selection:text-on-primary">
 <div class="grain-overlay"></div>
-<!-- TopAppBar -->
-<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 h-10 bg-[#333440] dark:bg-[#333440]/60 backdrop-blur-md shadow-none border-none rounded-none">
-<div class="text-sm font-mono text-[#c3e6ff] flex items-center gap-2 before:content-['[SYSTEM:OK]'] font-bold uppercase tracking-wider">
-            SAMUEL_FAWOLE_V1.0
-        </div>
-<nav class="hidden md:flex gap-6 items-center">
-<a class="text-xs font-medium font-['Space_Grotesk'] uppercase tracking-wider text-[#c3e6ff] border-b border-[#c3e6ff] pb-1 transition-all duration-75 hover:bg-[#c3e6ff]/10" href="#home">HOME</a>
-<a class="text-xs font-medium font-['Space_Grotesk'] uppercase tracking-wider text-gray-400 font-normal hover:text-[#d4bbff] transition-colors hover:bg-[#c3e6ff]/10" href="#projects">PROJECTS</a>
-<a class="text-xs font-medium font-['Space_Grotesk'] uppercase tracking-wider text-gray-400 font-normal hover:text-[#d4bbff] transition-colors hover:bg-[#c3e6ff]/10" href="#skills">STACK</a>
-<a class="text-xs font-medium font-['Space_Grotesk'] uppercase tracking-wider text-gray-400 font-normal hover:text-[#d4bbff] transition-colors hover:bg-[#c3e6ff]/10" href="#log">LOGS</a>
-</nav>
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-[#c3e6ff] text-sm hover:animate-pulse cursor-pointer">remove</span>
-<span class="material-symbols-outlined text-[#c3e6ff] text-sm hover:animate-pulse cursor-pointer">fullscreen</span>
-<span class="material-symbols-outlined text-[#c3e6ff] text-sm hover:animate-pulse cursor-pointer">close</span>
-</div>
+<!-- TopAppBar: brand + persistent CTA, no duplicate nav -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 md:px-6 h-14 bg-[#1a1b26]/90 backdrop-blur-md border-b border-outline-variant/10">
+<a href="#home" class="text-sm font-mono text-[#c3e6ff] font-bold uppercase tracking-wider">Samuel Fawole</a>
+<a href="#contact" class="text-xs font-bold font-['Space_Grotesk'] uppercase tracking-widest text-on-primary bg-primary px-4 py-2 hover:opacity-90 transition-opacity">Get a Growth Audit</a>
 </header>
 <!-- SideNavBar (Desktop Only) -->
-<aside class="fixed left-0 top-10 h-[calc(100vh-64px)] w-64 hidden md:flex flex-col p-6 bg-[#1a1b26] dark:bg-[#1a1b26]/80 backdrop-blur-xl border-r border-[#333440]/20 z-40">
-<div class="mb-10">
-<div class="text-[#c3e6ff] font-bold text-lg font-['Space_Grotesk'] tracking-[0.05rem] uppercase mb-1">ROOT@PORTFOLIO</div>
-<div class="text-[10px] font-mono text-gray-500 uppercase">UPTIME: <span id="uptime-counter">00:00:00</span></div>
+<aside class="fixed left-0 top-14 h-[calc(100vh-56px)] w-64 hidden md:flex flex-col p-8 bg-[#1a1b26] dark:bg-[#1a1b26]/80 backdrop-blur-xl border-r border-outline-variant/10 z-40">
+<div class="mb-12">
+<div class="text-on-surface font-bold text-lg font-['Space_Grotesk'] mb-1">Samuel Fawole</div>
+<div class="text-xs text-gray-500">Fullstack + AI Engineer</div>
 </div>
-<nav class="flex flex-col gap-4 flex-grow">
-<a class="group flex items-center gap-3 text-[#c3e6ff] font-bold before:content-['&gt;'] before:mr-2 font-['Space_Grotesk'] uppercase tracking-[0.05rem] flicker" href="#home">
-<span class="material-symbols-outlined text-sm">folder</span>
-                ~/home
+<nav class="flex flex-col gap-1 flex-grow">
+<a class="flex items-center gap-3 py-2 px-2 -ml-2 text-primary font-bold border-l-2 border-primary bg-primary/5" href="#home">
+<span class="material-symbols-outlined text-lg">home</span>
+                Home
             </a>
-<a class="group flex items-center gap-3 text-gray-500 hover:text-[#d4bbff] hover:translate-x-1 transition-transform font-['Space_Grotesk'] uppercase tracking-[0.05rem] flicker" href="#projects">
-<span class="material-symbols-outlined text-sm">terminal</span>
-                ~/projects
+<a class="flex items-center gap-3 py-2 px-2 -ml-2 text-gray-400 border-l-2 border-transparent hover:text-on-surface hover:border-outline-variant/40 transition-colors" href="#client-work">
+<span class="material-symbols-outlined text-lg">work</span>
+                Client Work
             </a>
-<a class="group flex items-center gap-3 text-gray-500 hover:text-[#d4bbff] hover:translate-x-1 transition-transform font-['Space_Grotesk'] uppercase tracking-[0.05rem] flicker" href="#skills">
-<span class="material-symbols-outlined text-sm">code</span>
-                ~/skills
+<a class="flex items-center gap-3 py-2 px-2 -ml-2 text-gray-400 border-l-2 border-transparent hover:text-on-surface hover:border-outline-variant/40 transition-colors" href="#labs">
+<span class="material-symbols-outlined text-lg">science</span>
+                Labs
             </a>
-<a class="group flex items-center gap-3 text-gray-500 hover:text-[#d4bbff] hover:translate-x-1 transition-transform font-['Space_Grotesk'] uppercase tracking-[0.05rem] flicker" href="#contact">
-<span class="material-symbols-outlined text-sm">terminal</span>
-                ~/contact
+<a class="flex items-center gap-3 py-2 px-2 -ml-2 text-gray-400 border-l-2 border-transparent hover:text-on-surface hover:border-outline-variant/40 transition-colors" href="#skills">
+<span class="material-symbols-outlined text-lg">code</span>
+                Stack
+            </a>
+<a class="flex items-center gap-3 py-2 px-2 -ml-2 text-gray-400 border-l-2 border-transparent hover:text-on-surface hover:border-outline-variant/40 transition-colors" href="#log">
+<span class="material-symbols-outlined text-lg">work_history</span>
+                Track Record
+            </a>
+<a class="flex items-center gap-3 py-2 px-2 -ml-2 text-gray-400 border-l-2 border-transparent hover:text-on-surface hover:border-outline-variant/40 transition-colors" href="#contact">
+<span class="material-symbols-outlined text-lg">mail</span>
+                Contact
             </a>
 </nav>
-<button class="mt-auto border border-outline-variant/20 py-3 px-4 text-xs font-bold uppercase tracking-widest text-secondary hover:bg-secondary hover:text-on-secondary transition-all">
-            EXECUTE_CONTACT
-        </button>
+<a href="#contact" class="mt-auto border border-primary py-3 px-4 text-xs font-bold uppercase tracking-widest text-primary text-center hover:bg-primary hover:text-on-primary transition-all">
+            Get a Growth Audit
+        </a>
 </aside>
-<main class="md:ml-64 mt-10 mb-8 p-4 md:p-12 space-y-24">
-<!-- /whoami (Hero) -->
-<section class="min-h-[716px] flex flex-col justify-center" id="home">
-<div class="space-y-4 max-w-4xl">
-<div class="text-primary font-mono text-sm opacity-80 mb-2">/usr/bin/identity --verbose</div>
-<h1 class="text-5xl md:text-7xl font-headline font-bold text-on-surface leading-tight text-glow uppercase">
-                    SAMUEL <span class="text-primary">FAWOLE</span> <br/>
-                    SOFTWARE ENGINEER.
-                </h1>
-<div class="flex items-center gap-2 text-xl md:text-2xl font-body text-gray-400">
-<span class="text-primary font-mono">&gt;</span>
-<span id="typewriter-text">Building scalable, user-focused web applications.</span>
-<span class="w-3 h-8 bg-primary inline-block blink"></span>
+<main class="md:ml-64 mt-14 mb-8 p-6 md:p-16 space-y-32">
+<!-- Hero -->
+<section class="min-h-[80vh] flex flex-col justify-center max-w-3xl" id="home">
+<div class="inline-flex items-center gap-2 self-start mb-6 border border-emerald-500/30 bg-emerald-500/5 px-3 py-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-[11px] font-mono uppercase tracking-widest text-emerald-400">Available for new projects</span>
 </div>
+<h1 class="text-4xl md:text-6xl font-headline font-bold text-on-surface leading-[1.1] mb-6">
+                I build systems that make <span class="text-primary">you</span> more money.
+            </h1>
+<p class="text-lg md:text-xl font-body text-gray-400 leading-relaxed max-w-xl mb-10">
+                Not "a website." The AI agents, booking flows, and payment rails that turn the traffic
+                you already have into customers who pay — built for real estate, edtech, legal, and fintech businesses.
+            </p>
+<div class="flex flex-wrap items-center gap-6">
+<a href="#contact" class="bg-primary text-on-primary py-4 px-8 font-bold uppercase tracking-widest text-sm hover:opacity-90 transition-opacity">Get a Free Growth Audit</a>
+<a href="#client-work" class="text-sm font-bold text-gray-300 hover:text-primary transition-colors flex items-center gap-2">See the work <span class="material-symbols-outlined text-base">arrow_downward</span></a>
 </div>
-<!-- ASCII Art Decorative -->
-<pre class="mt-12 text-[8px] md:text-[10px] leading-[8px] text-outline-variant/30 font-mono select-none">                _____  ______ _______ __   __ _______ _______ _______ 
-               |     \|  ____|   |    \ / / |  |  | |  |  | |  |  |
-               |_____/|______|   |     |    |  |  | |  |  | |  |  |
-                                                                    
-               [0x74 0x65 0x72 0x6d 0x69 0x6e 0x61 0x6c 0x5f 0x72]
-            </pre>
 </section>
-<!-- /projects (Bento-Grid style with filesystem logic) -->
-<section class="space-y-8" id="projects">
-<div class="flex items-baseline justify-between border-b border-outline-variant/20 pb-2">
-<h2 class="text-2xl font-headline font-bold tracking-widest uppercase text-on-surface">/projects</h2>
-<span class="text-xs font-mono text-gray-500">TOTAL: 04 FILES</span>
+<!-- Proof strip -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 border-t border-b border-outline-variant/15 py-10 -mt-20">
+<div>
+<div class="text-2xl md:text-3xl font-headline font-bold text-primary mb-1">Live</div>
+<div class="text-xs text-gray-500 uppercase tracking-wide leading-relaxed">AI sales agent qualifying real leads in production</div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-1">
-<!-- Project 01 -->
-<div class="md:col-span-8 bg-surface-container-low p-6 border border-outline-variant/20 hover:border-primary/50 transition-colors group">
-<div class="flex justify-between items-start mb-6">
-<div class="text-[10px] font-mono text-primary px-2 py-1 bg-primary/10">DIR: FULLSTACK_INFRA</div>
-<span class="material-symbols-outlined text-gray-600 group-hover:text-primary transition-colors">open_in_new</span>
+<div>
+<div class="text-2xl md:text-3xl font-headline font-bold text-primary mb-1">4</div>
+<div class="text-xs text-gray-500 uppercase tracking-wide leading-relaxed">Shipped client products, real businesses</div>
 </div>
-<h3 class="text-3xl font-headline font-bold mb-4 uppercase">KAYLABIT_DOCS_ENGINE</h3>
-<p class="text-gray-400 mb-6 font-body leading-relaxed max-w-2xl">
-                        A dynamic API documentation platform with RBAC security for internal engineering teams. Built for inputting and formatting complex API docs with real-time editing.
+<div>
+<div class="text-2xl md:text-3xl font-headline font-bold text-primary mb-1">2</div>
+<div class="text-xs text-gray-500 uppercase tracking-wide leading-relaxed">Payment gateways shipped — Paystack, Flutterwave</div>
+</div>
+<div>
+<div class="text-2xl md:text-3xl font-headline font-bold text-primary mb-1">Kaylabit</div>
+<div class="text-xs text-gray-500 uppercase tracking-wide leading-relaxed">Fintech AML engineer, current full-time role</div>
+</div>
+</section>
+<!-- /client-work -->
+<section class="space-y-10" id="client-work">
+<div class="max-w-xl">
+<div class="text-xs font-mono text-primary uppercase tracking-widest mb-3">Proven, revenue-generating work</div>
+<h2 class="text-3xl md:text-4xl font-headline font-bold text-on-surface">Client Work</h2>
+</div>
+<!-- Featured -->
+<a href="projects/reva.html" class="block bg-surface-container-low border border-outline-variant/20 hover:border-primary/50 transition-colors p-8 md:p-12 group">
+<div class="flex flex-wrap justify-between items-start gap-4 mb-6">
+<span class="text-[11px] font-mono text-primary border border-primary/30 px-2.5 py-1 uppercase tracking-wide">Live in production</span>
+<span class="material-symbols-outlined text-gray-600 group-hover:text-primary group-hover:translate-x-1 transition-all">arrow_forward</span>
+</div>
+<h3 class="text-2xl md:text-4xl font-headline font-bold mb-4">Reva — Lead-to-Booking Engine</h3>
+<p class="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl mb-6">
+                        Turns inbound WhatsApp chats into qualified, booked, and paid property viewings
+                        for real-estate teams — no extra headcount required.
                     </p>
-<div class="flex flex-wrap gap-3 font-mono text-[11px] uppercase tracking-tighter">
-<span class="text-secondary">--nextjs</span>
-<span class="text-secondary">--typescript</span>
-<span class="text-secondary">--rbac</span>
+<div class="flex flex-wrap gap-3 text-[11px] font-mono uppercase text-gray-500">
+<span>WhatsApp API</span><span>·</span><span>FastAPI</span><span>·</span><span>Flutterwave</span>
 </div>
-</div>
-<!-- Project 02 -->
-<div class="md:col-span-4 bg-surface-container-high p-6 border border-outline-variant/20 flex flex-col justify-between">
+</a>
+<!-- Supporting grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<a href="projects/fink.html" class="bg-surface-container-low border border-outline-variant/20 hover:border-primary/50 transition-colors p-8 flex flex-col justify-between">
 <div>
-<div class="text-[10px] font-mono text-secondary mb-4">FILE: MERN_APP</div>
-<h3 class="text-xl font-headline font-bold mb-2 uppercase">HOTEL_BOOKING_OS</h3>
-<p class="text-sm text-gray-500 font-body">Complete booking system with advanced filtering, JWT auth, and admin management dashboard.</p>
+<span class="text-[11px] font-mono text-emerald-400 uppercase tracking-wide">Live</span>
+<h3 class="text-xl font-headline font-bold mt-3 mb-3">Fink.com.ng</h3>
+<p class="text-sm text-gray-400 leading-relaxed">Matches students with expert tutors for live paid cohorts — enrollment and payment fully automated.</p>
 </div>
-<div class="mt-8 font-mono text-[10px] text-gray-400">
-                        STATUS: PRODUCTION_READY
-                    </div>
-</div>
-<!-- Project 03 -->
-<div class="md:col-span-4 bg-surface-container-high p-6 border border-outline-variant/20 flex flex-col justify-between">
+<div class="mt-6 text-[11px] font-mono uppercase text-gray-500">Next.js · Prisma · Paystack</div>
+</a>
+<a href="projects/bamandgad.html" class="bg-surface-container-low border border-outline-variant/20 hover:border-primary/50 transition-colors p-8 flex flex-col justify-between">
 <div>
-<div class="text-[10px] font-mono text-secondary mb-4">FILE: PRICE_TRACKER</div>
-<h3 class="text-xl font-headline font-bold mb-2 uppercase">PAYWISE_ENGINE</h3>
-<p class="text-sm text-gray-500 font-body">Full-stack application for crowdsourcing and analyzing real-time local market commodity prices.</p>
+<span class="text-[11px] font-mono text-emerald-400 uppercase tracking-wide">Live client site</span>
+<h3 class="text-xl font-headline font-bold mt-3 mb-3">Bam &amp; Gad Solicitors</h3>
+<p class="text-sm text-gray-400 leading-relaxed">The digital front door for a Lagos law firm — built to turn searchers into consultations.</p>
 </div>
-<div class="mt-8 font-mono text-[10px] text-gray-400">
-                        HASH: 0x4e21...fd91
-                    </div>
+<div class="mt-6 text-[11px] font-mono uppercase text-gray-500">GitHub Pages</div>
+</a>
+<a href="projects/gbemiga.html" class="bg-surface-container-low border border-outline-variant/20 hover:border-primary/50 transition-colors p-8 flex flex-col justify-between">
+<div>
+<span class="text-[11px] font-mono text-emerald-400 uppercase tracking-wide">Live</span>
+<h3 class="text-xl font-headline font-bold mt-3 mb-3">gbemiga</h3>
+<p class="text-sm text-gray-400 leading-relaxed">Portfolio + 6 brand case studies built for a freelance designer, now used to close new work.</p>
 </div>
-<!-- Project 04 -->
-<div class="md:col-span-8 bg-surface-container-low p-6 border border-outline-variant/20 flex flex-col md:flex-row gap-8 items-center">
-<div class="w-full md:w-1/2">
-<h3 class="text-xl font-headline font-bold mb-2 uppercase">DEFI_VESTING_V1</h3>
-<p class="text-sm text-gray-400 mb-4 font-body">Gas-optimized smart contracts for token distribution and crowdfunding. Implemented linear and cliff release schedules with Foundry.</p>
-<div class="flex gap-2">
-<span class="text-[10px] border border-outline-variant/40 px-2 py-1 uppercase font-mono">--solidity</span>
-<span class="text-[10px] border border-outline-variant/40 px-2 py-1 uppercase font-mono">--foundry</span>
+<div class="mt-6 text-[11px] font-mono uppercase text-gray-500">Custom design system</div>
+</a>
 </div>
+</section>
+<!-- /labs -->
+<section class="space-y-8" id="labs">
+<div class="max-w-xl">
+<div class="text-xs font-mono text-[#7dffb3] uppercase tracking-widest mb-3">Not revenue-validated yet</div>
+<h2 class="text-3xl md:text-4xl font-headline font-bold text-on-surface">Labs</h2>
+<p class="text-gray-500 text-sm mt-3 leading-relaxed">Where I test ideas at the edge — mostly AI agents and on-chain payments. These prove range and technical depth.</p>
 </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<a href="projects/aegis.html" class="bg-surface-container-low border border-[#7dffb3]/15 hover:border-[#7dffb3]/50 transition-colors p-8">
+<h3 class="text-lg font-headline font-bold mb-3">Aegis Protocol</h3>
+<p class="text-sm text-gray-500 leading-relaxed mb-4">Lets a person hand an AI agent spending power — capped and revocable on-chain.</p>
+<div class="text-[11px] font-mono uppercase text-gray-600">Soroban · Stellar · x402</div>
+</a>
+<a href="projects/toldya.html" class="bg-surface-container-low border border-[#7dffb3]/15 hover:border-[#7dffb3]/50 transition-colors p-8">
+<h3 class="text-lg font-headline font-bold mb-3">toldya</h3>
+<p class="text-sm text-gray-500 leading-relaxed mb-4">Peer-to-peer prediction markets between friends, settled by an AI oracle on-chain.</p>
+<div class="text-[11px] font-mono uppercase text-gray-600">Solidity · Foundry · Next.js</div>
+</a>
+<a href="projects/shadowdrop.html" class="bg-surface-container-low border border-[#7dffb3]/15 hover:border-[#7dffb3]/50 transition-colors p-8">
+<h3 class="text-lg font-headline font-bold mb-3">Shadowdrop</h3>
+<p class="text-sm text-gray-500 leading-relaxed mb-4">An escrow marketplace where verified, encrypted information is sold safely to journalists.</p>
+<div class="text-[11px] font-mono uppercase text-gray-600">Solidity · Foundry · AI agent</div>
+</a>
+<a href="projects/paywise.html" class="bg-surface-container-low border border-[#7dffb3]/15 hover:border-[#7dffb3]/50 transition-colors p-8">
+<h3 class="text-lg font-headline font-bold mb-3">Paywise <span class="text-amber-500 text-xs font-mono uppercase ml-1">Concept</span></h3>
+<p class="text-sm text-gray-500 leading-relaxed mb-4">Crowdsourced, real-time local commodity pricing. Not yet built.</p>
+<div class="text-[11px] font-mono uppercase text-gray-600">Concept stage</div>
+</a>
+</div>
+</section>
+<!-- /skills -->
+<section class="space-y-8" id="skills">
+<h2 class="text-3xl md:text-4xl font-headline font-bold text-on-surface">Stack</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+<div>
+<div class="flex justify-between items-baseline mb-2">
+<span class="font-medium text-on-surface">TypeScript / Python / PHP</span>
+<span class="text-xs font-mono text-gray-500">Daily driver</span>
+</div>
+<div class="h-1.5 bg-surface-container-highest"><div class="h-full bg-primary" style="width:96%"></div></div>
+</div>
+<div>
+<div class="flex justify-between items-baseline mb-2">
+<span class="font-medium text-on-surface">React / Next.js / Tailwind</span>
+<span class="text-xs font-mono text-gray-500">Daily driver</span>
+</div>
+<div class="h-1.5 bg-surface-container-highest"><div class="h-full bg-primary" style="width:92%"></div></div>
+</div>
+<div>
+<div class="flex justify-between items-baseline mb-2">
+<span class="font-medium text-on-surface">Node.js / Express / Hono / Bun</span>
+<span class="text-xs font-mono text-gray-500">Daily driver</span>
+</div>
+<div class="h-1.5 bg-surface-container-highest"><div class="h-full bg-primary" style="width:90%"></div></div>
+</div>
+<div>
+<div class="flex justify-between items-baseline mb-2">
+<span class="font-medium text-on-surface">PostgreSQL / Redis / Docker</span>
+<span class="text-xs font-mono text-gray-500">Production-grade</span>
+</div>
+<div class="h-1.5 bg-surface-container-highest"><div class="h-full bg-secondary" style="width:85%"></div></div>
+</div>
+<div>
+<div class="flex justify-between items-baseline mb-2">
+<span class="font-medium text-on-surface">Solidity / Hardhat / Foundry</span>
+<span class="text-xs font-mono text-gray-500">Labs-grade</span>
+</div>
+<div class="h-1.5 bg-surface-container-highest"><div class="h-full bg-secondary" style="width:75%"></div></div>
 </div>
 </div>
 </section>
-<!-- /skills (htop style) -->
-<section class="space-y-6" id="skills">
-<div class="flex items-baseline justify-between">
-<h2 class="text-2xl font-headline font-bold tracking-widest uppercase text-on-surface">/skills --top</h2>
-</div>
-<div class="bg-surface-container-low border border-outline-variant/20 p-4 font-mono text-xs overflow-x-auto">
-<table class="w-full text-left">
-<thead class="text-gray-500 border-b border-outline-variant/20">
-<tr>
-<th class="pb-2 font-normal">PID</th>
-<th class="pb-2 font-normal">RESOURCE</th>
-<th class="pb-2 font-normal">LEVEL</th>
-<th class="pb-2 font-normal">LOAD_BAR</th>
-<th class="pb-2 font-normal">STATUS</th>
-</tr>
-</thead>
-<tbody class="text-gray-300">
-<tr class="hover:bg-primary/5 transition-colors">
-<td class="py-3">001</td>
-<td class="text-primary">TypeScript / Python / PHP</td>
-<td>98.2%</td>
-<td><span class="text-primary">[||||||||||||||||||--]</span></td>
-<td class="text-emerald-500">RUNNING</td>
-</tr>
-<tr class="hover:bg-primary/5 transition-colors">
-<td class="py-3">002</td>
-<td class="text-primary">React / Next.js / Tailwind</td>
-<td>94.0%</td>
-<td><span class="text-primary">[|||||||||||||||||---]</span></td>
-<td class="text-emerald-500">RUNNING</td>
-</tr>
-<tr class="hover:bg-primary/5 transition-colors">
-<td class="py-3">003</td>
-<td class="text-primary">Node.js / Express / Hono / Bun</td>
-<td>92.4%</td>
-<td><span class="text-primary">[||||||||||||||||----]</span></td>
-<td class="text-emerald-500">RUNNING</td>
-</tr>
-<tr class="hover:bg-primary/5 transition-colors">
-<td class="py-3">004</td>
-<td class="text-secondary">Solidity / Hardhat / Foundry</td>
-<td>85.1%</td>
-<td><span class="text-secondary">[||||||||||||||------]</span></td>
-<td class="text-amber-500">STABLE</td>
-</tr>
-<tr class="hover:bg-primary/5 transition-colors">
-<td class="py-3">005</td>
-<td class="text-secondary">PostgreSQL / Redis / Docker</td>
-<td>88.5%</td>
-<td><span class="text-secondary">[||||||||||||||||----]</span></td>
-<td class="text-emerald-500">RUNNING</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<!-- /log (Git log style) -->
-<section class="space-y-6" id="log">
-<h2 class="text-2xl font-headline font-bold tracking-widest uppercase text-on-surface">/log --graph</h2>
-<div class="space-y-8 relative pl-6 before:absolute before:left-0 before:top-2 before:bottom-0 before:w-px before:bg-outline-variant/30">
+<!-- /log -->
+<section class="space-y-10" id="log">
+<h2 class="text-3xl md:text-4xl font-headline font-bold text-on-surface">Track Record</h2>
+<div class="space-y-10 relative pl-8 before:absolute before:left-0 before:top-2 before:bottom-0 before:w-px before:bg-outline-variant/30">
 <div class="relative">
-<span class="absolute -left-[30px] top-1 text-primary text-xl">*</span>
-<div class="flex items-center gap-4 text-xs font-mono mb-2">
-<span class="text-secondary">commit ad7f2c8</span>
-<span class="text-gray-500">SEP 2025 - PRESENT</span>
-</div>
-<h3 class="text-lg font-headline font-bold uppercase">Fullstack Developer @ Kaylabit</h3>
-<p class="text-sm text-gray-400 font-body mt-2">Building high-quality fintech AML platform UIs using React, TypeScript, and Tailwind. Collaborating on REST API integrations and core component library development.</p>
+<span class="absolute -left-[34px] top-1 w-3 h-3 rounded-full bg-primary"></span>
+<div class="text-xs font-mono text-gray-500 mb-2">Sep 2025 — Present</div>
+<h3 class="text-lg font-headline font-bold mb-2">Fullstack Developer @ Kaylabit</h3>
+<p class="text-sm text-gray-400 leading-relaxed max-w-xl">Building high-quality fintech AML platform UIs using React, TypeScript, and Tailwind. Collaborating on REST API integrations and core component library development.</p>
 </div>
 <div class="relative">
-<span class="absolute -left-[30px] top-1 text-gray-500 text-xl">|</span>
-<span class="absolute -left-[30px] top-8 text-secondary text-xl">*</span>
-<div class="flex items-center gap-4 text-xs font-mono mb-2">
-<span class="text-secondary">commit 4b12e91</span>
-<span class="text-gray-500">OCT 2024 - AUG 2025</span>
-</div>
-<h3 class="text-lg font-headline font-bold uppercase">Freelancer & Sole Fullstack Developer</h3>
-<p class="text-sm text-gray-400 font-body mt-2">Delivered end-to-end e-commerce solutions with Next.js, Stripe, and Prisma. Managed complete CI/CD pipelines and performance optimization.</p>
+<span class="absolute -left-[34px] top-1 w-3 h-3 rounded-full bg-secondary"></span>
+<div class="text-xs font-mono text-gray-500 mb-2">Oct 2024 — Aug 2025</div>
+<h3 class="text-lg font-headline font-bold mb-2">Freelancer &amp; Sole Fullstack Developer</h3>
+<p class="text-sm text-gray-400 leading-relaxed max-w-xl">Delivered end-to-end e-commerce solutions with Next.js, Stripe, and Prisma. Managed complete CI/CD pipelines and performance optimization.</p>
 </div>
 <div class="relative">
-<span class="absolute -left-[30px] top-1 text-gray-500 text-xl">|</span>
-<span class="absolute -left-[30px] top-8 text-gray-400 text-xl">*</span>
-<div class="flex items-center gap-4 text-xs font-mono mb-2">
-<span class="text-secondary">commit 90f4a2d</span>
-<span class="text-gray-500">JUL 2023 - OCT 2023</span>
-</div>
-<h3 class="text-lg font-headline font-bold uppercase">Founding Frontend Engineer</h3>
-<p class="text-sm text-gray-400 font-body mt-2">Solely designed and built the UI for a 1-on-1 tutoring platform. Implemented responsive designs and integrated frontend with core APIs.</p>
+<span class="absolute -left-[34px] top-1 w-3 h-3 rounded-full bg-outline-variant"></span>
+<div class="text-xs font-mono text-gray-500 mb-2">Jul 2023 — Oct 2023</div>
+<h3 class="text-lg font-headline font-bold mb-2">Founding Frontend Engineer</h3>
+<p class="text-sm text-gray-400 leading-relaxed max-w-xl">Solely designed and built the UI for a 1-on-1 tutoring platform. Implemented responsive designs and integrated frontend with core APIs.</p>
 </div>
 </div>
 </section>
 <!-- /contact -->
 <section class="pb-20" id="contact">
-<div class="bg-surface-container-low border border-outline-variant/20 p-8 md:p-12 relative overflow-hidden">
-<div class="absolute top-0 right-0 p-4 font-mono text-[10px] text-outline-variant/20 rotate-90 origin-top-right">
-                    --easter-egg: "sudo rm -rf /"
-                </div>
-<h2 class="text-3xl font-headline font-bold mb-8 tracking-widest uppercase">/contact --init</h2>
-<div class="grid md:grid-cols-2 gap-12">
-<div class="space-y-6">
-<div class="space-y-1">
-<label class="block text-[10px] font-mono text-gray-500 uppercase">Input Command</label>
-<div class="flex items-center border-b border-outline-variant">
-<span class="text-primary font-mono mr-3">&gt;</span>
-<input class="bg-transparent border-none focus:ring-0 text-on-surface w-full font-mono placeholder:text-outline-variant/40" placeholder="name@domain.com" type="text" value="samuellfco@gmail.com" readonly/>
+<div class="bg-surface-container-low border border-outline-variant/20 p-8 md:p-16">
+<div class="max-w-xl mb-12">
+<h2 class="text-3xl md:text-4xl font-headline font-bold mb-4">Tell me what's costing you customers.</h2>
+<p class="text-gray-400 text-base md:text-lg leading-relaxed">Free 15-minute teardown of your current funnel — what I'd fix first, no pitch attached.</p>
 </div>
+<div class="grid md:grid-cols-2 gap-16">
+<form class="space-y-6" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<!-- Sign up for a free Formspree form at https://formspree.io and replace YOUR_FORM_ID above -->
+<div class="space-y-2">
+<label class="block text-xs font-medium text-gray-400" for="name">Your Name</label>
+<input class="w-full bg-surface-container-highest border border-outline-variant/30 focus:border-primary focus:ring-0 text-on-surface px-4 py-3" id="name" name="name" placeholder="Jane Doe" type="text" required/>
 </div>
-<div class="space-y-1">
-<label class="block text-[10px] font-mono text-gray-500 uppercase">Message Buffer</label>
-<div class="flex items-start border-b border-outline-variant py-2">
-<span class="text-primary font-mono mr-3 mt-1">&gt;</span>
-<textarea class="bg-transparent border-none focus:ring-0 text-on-surface w-full font-mono placeholder:text-outline-variant/40 resize-none" placeholder="Initialize transmission..." rows="3"></textarea>
+<div class="space-y-2">
+<label class="block text-xs font-medium text-gray-400" for="email">Business Email</label>
+<input class="w-full bg-surface-container-highest border border-outline-variant/30 focus:border-primary focus:ring-0 text-on-surface px-4 py-3" id="email" name="email" placeholder="you@company.com" type="email" required/>
 </div>
+<div class="space-y-2">
+<label class="block text-xs font-medium text-gray-400" for="message">What are you trying to fix or build?</label>
+<textarea class="w-full bg-surface-container-highest border border-outline-variant/30 focus:border-primary focus:ring-0 text-on-surface px-4 py-3 resize-none" id="message" name="message" placeholder="We're getting traffic but not enough bookings..." rows="4" required></textarea>
 </div>
-<button onclick="window.location.href='mailto:samuellfco@gmail.com'" class="w-full bg-surface-container-highest border border-primary text-on-surface py-3 font-mono font-bold uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all flicker">
-                            PUSH_MESSAGE
-                        </button>
-</div>
+<button type="submit" class="w-full bg-primary text-on-primary py-4 font-bold uppercase tracking-widest text-sm hover:opacity-90 transition-opacity">Request Growth Audit</button>
+</form>
 <div class="space-y-8 flex flex-col justify-center">
 <div>
-<div class="text-[10px] font-mono text-secondary uppercase mb-2">Public Key Fingerprint</div>
-<div class="font-mono text-xs text-gray-500 break-all leading-relaxed bg-surface-container-highest p-4 border border-outline-variant/10">
-                                4E21 9B73 A10C 2F0E D55B <br/>
-                                778A 01FC 33B4 22D0 FD91
-                            </div>
+<div class="text-xs text-gray-500 uppercase mb-2">Prefer email?</div>
+<a href="mailto:samuellfco@gmail.com" class="text-primary hover:underline break-all">samuellfco@gmail.com</a>
 </div>
 <div class="flex gap-6">
-<a class="text-xs font-mono text-primary hover:underline uppercase" href="https://github.com/the-foundingengineer" target="_blank">GitHub</a>
-<a class="text-xs font-mono text-primary hover:underline uppercase" href="https://www.linkedin.com/in/samuel-fawole-b089b7235/" target="_blank">LinkedIn</a>
-<a class="text-xs font-mono text-primary hover:underline uppercase" href="https://x.com/openedbakery" target="_blank">Twitter_X</a>
+<a class="text-sm text-gray-400 hover:text-primary transition-colors" href="https://github.com/the-foundingengineer" target="_blank">GitHub</a>
+<a class="text-sm text-gray-400 hover:text-primary transition-colors" href="https://www.linkedin.com/in/samuel-fawole-b089b7235/" target="_blank">LinkedIn</a>
+<a class="text-sm text-gray-400 hover:text-primary transition-colors" href="https://x.com/openedbakery" target="_blank">Twitter / X</a>
 </div>
-<div class="text-[10px] font-mono text-gray-600">
-                            HINT: Try typing <span class="text-secondary">--help</span> for secret params.
-                        </div>
+<div class="text-xs text-gray-600">Usually responds within 24 hours.</div>
 </div>
 </div>
 </div>
 </section>
 </main>
 <!-- Footer -->
-<footer class="fixed bottom-0 left-0 w-full z-50 flex items-center justify-between px-6 overflow-hidden bg-[#333440] h-8 font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-[#d4bbff] rounded-none shadow-none">
-<div class="flex gap-4">
-<span class="text-[#c3e6ff] animate-pulse">● LIVE_SYSTEM</span>
-<span class="text-gray-400">© 2026 SAMUEL FAWOLE. ALL RIGHTS RESERVED.</span>
-</div>
-<div class="flex gap-6">
-<a class="text-gray-400 hover:text-white transition-colors" href="https://github.com/the-foundingengineer" target="_blank">GITHUB</a>
-<a class="text-gray-400 hover:text-white transition-colors" href="https://www.linkedin.com/in/samuel-fawole-b089b7235/" target="_blank">LINKEDIN</a>
-<a class="text-gray-400 hover:text-white transition-colors" href="https://x.com/openedbakery" target="_blank">X_TWITTER</a>
-</div>
+<footer class="fixed bottom-0 left-0 w-full z-40 hidden md:flex items-center justify-between px-6 bg-[#1a1b26]/90 backdrop-blur-md border-t border-outline-variant/10 h-9 text-[11px] text-gray-500">
+<span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Available for new projects</span>
+<span>© 2026 Samuel Fawole</span>
 </footer>
 <!-- Mobile Navigation (visible on small screens) -->
-<nav class="md:hidden fixed bottom-8 left-1/2 -translate-x-1/2 flex bg-surface-container-highest/80 backdrop-blur-md border border-outline-variant/30 px-6 py-3 gap-8 z-50">
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 flex bg-surface-container-highest/90 backdrop-blur-md border border-outline-variant/30 px-6 py-3 gap-8 z-50">
 <a class="text-primary" href="#home"><span class="material-symbols-outlined">home</span></a>
-<a class="text-gray-400" href="#projects"><span class="material-symbols-outlined">terminal</span></a>
-<a class="text-gray-400" href="#skills"><span class="material-symbols-outlined">code</span></a>
+<a class="text-gray-400" href="#client-work"><span class="material-symbols-outlined">work</span></a>
+<a class="text-gray-400" href="#labs"><span class="material-symbols-outlined">science</span></a>
 <a class="text-gray-400" href="#contact"><span class="material-symbols-outlined">mail</span></a>
 </nav>
-<script>
-    // Uptime Clock
-    const startTime = Date.now();
-    setInterval(() => {
-        const delta = Math.floor((Date.now() - startTime) / 1000);
-        const h = String(Math.floor(delta / 3600)).padStart(2, '0');
-        const m = String(Math.floor((delta % 3600) / 60)).padStart(2, '0');
-        const s = String(delta % 60).padStart(2, '0');
-        const counter = document.getElementById('uptime-counter');
-        if (counter) counter.textContent = `${h}:${m}:${s}`;
-    }, 1000);
-
-    // Typing Effect for Hero
-    const heroText = "Building scalable, user-focused web applications.";
-    let i = 0;
-    const typingSpan = document.getElementById('typewriter-text');
-    if (typingSpan) {
-        typingSpan.textContent = "";
-        function type() {
-            if (i < heroText.length) {
-                typingSpan.textContent += heroText.charAt(i);
-                i++;
-                setTimeout(type, 50);
-            }
-        }
-        // Initialize typewriter after a short delay
-        setTimeout(type, 500);
-    }
-</script>
+<script src="assets/interactions.js"></script>
 </body></html>

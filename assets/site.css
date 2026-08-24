@@ -1,0 +1,73 @@
+body {
+    background-color: #12131d;
+    background-image:
+        linear-gradient(rgba(18, 19, 29, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: auto;
+}
+.grain-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Noise_Texture.png");
+    opacity: 0.02;
+    pointer-events: none;
+    z-index: 9999;
+}
+.blink { animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.flicker:hover { animation: flicker 0.05s infinite; }
+@keyframes flicker {
+    0% { opacity: 0.9; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+.text-glow { text-shadow: 0 0 8px rgba(195, 230, 255, 0.4); }
+.text-glow-labs { text-shadow: 0 0 8px rgba(125, 255, 179, 0.35); }
+
+/* Case-study diagram scaffolding */
+.diagram-node {
+    border: 1px solid rgba(137, 146, 153, 0.3);
+    background: #1a1b26;
+}
+.diagram-arrow {
+    color: #899299;
+    position: relative;
+}
+.diagram-arrow::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 0;
+    width: 6px; height: 6px;
+    border-radius: 9999px;
+    background: var(--flow-color, #c3e6ff);
+    box-shadow: 0 0 6px var(--flow-color, #c3e6ff);
+    transform: translate(-50%, -50%);
+    animation: flow-travel 2.4s linear infinite;
+    opacity: 0;
+}
+.diagram-arrow:nth-of-type(2n)::after { animation-delay: 0.6s; }
+.diagram-arrow:nth-of-type(3n)::after { animation-delay: 1.2s; }
+@keyframes flow-travel {
+    0% { left: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}
+
+/* Scroll reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tilt cards */
+.tilt-card { transition: transform 0.15s ease-out; will-change: transform; }
+
+/* Command palette */
+#cmdk-results li:hover { background: rgba(195, 230, 255, 0.08); }
