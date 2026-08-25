@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/theprinter/Documents/**)",
+      "Read(//mnt/c/Users/ZBOOK STUDIO G5/Documents/dev/**)",
+      "Read(//home/theprinter/**)",
+      "Bash(wsl.exe -l -v)",
+      "Read(//usr/lib/**)",
+      "Bash(mount)"
+    ]
+  }
+}
