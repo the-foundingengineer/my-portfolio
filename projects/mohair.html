@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mohair Luxury Wigs — Case Study | Samuel Fawole</title>
+<meta name="description" content="Building a full e-commerce system for a luxury wig brand — catalogue, cart, Stripe checkout, and order management."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Be+Vietnam+Pro:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config" src="../assets/theme.js"></script>
+<link rel="stylesheet" href="../assets/site.css"/>
+</head>
+<body class="font-body text-on-surface selection:bg-primary selection:text-on-primary">
+<div class="grain-overlay"></div>
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 md:px-6 h-14 bg-[#1a1b26]/90 backdrop-blur-md border-b border-outline-variant/10">
+<a href="../index.html" class="text-sm font-mono text-[#c3e6ff] font-bold uppercase tracking-wider">Samuel Fawole</a>
+<a href="../index.html#contact" class="text-xs font-bold font-['Space_Grotesk'] uppercase tracking-widest text-on-primary bg-primary px-4 py-2 hover:opacity-90 transition-opacity">Get a Growth Audit</a>
+</header>
+<main class="max-w-3xl mx-auto mt-28 mb-24 px-6 md:px-0 space-y-20">
+<a href="../index.html#client-work" class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">arrow_back</span> Back to Client Work</a>
+
+<!-- Hero -->
+<section class="space-y-6">
+  <div class="flex flex-wrap gap-3">
+    <span class="text-[11px] font-mono text-primary border border-primary/30 px-2.5 py-1 uppercase tracking-wide">Client Work</span>
+    <span class="text-[11px] font-mono text-amber-400 border border-amber-400/30 px-2.5 py-1 uppercase tracking-wide">In Progress</span>
+  </div>
+  <h1 class="text-4xl md:text-5xl font-headline font-bold leading-tight">Mohair Luxury Wigs</h1>
+  <p class="text-xl md:text-2xl text-gray-300 max-w-2xl leading-snug">A full e-commerce system for a luxury wig brand — product catalogue, cart, Stripe checkout, and admin order management, all built from scratch.</p>
+</section>
+
+<!-- Problem -->
+<section class="space-y-4 max-w-2xl">
+  <h2 class="text-2xl font-headline font-bold">The Problem</h2>
+  <p class="text-gray-400 text-base md:text-lg leading-relaxed">Mohair is a premium wig brand that needed more than a product listing page. They needed a complete commerce infrastructure — a browsable catalogue with filters, a persistent cart, a reliable checkout with Stripe, and a backend where they could manage orders and inventory without engineering support. Off-the-shelf platforms were either too expensive, too generic, or couldn't be customised to match the brand's premium feel.</p>
+</section>
+
+<!-- Build -->
+<section class="space-y-4 max-w-2xl">
+  <h2 class="text-2xl font-headline font-bold">The Build</h2>
+  <p class="text-gray-400 text-base md:text-lg leading-relaxed">I built the entire system from the ground up using Next.js 16 and Prisma on a Supabase Postgres database. The frontend covers a filterable product gallery, individual product pages, a full cart system with persistent state, and a Stripe-powered checkout flow complete with payment intent creation and webhook handling. On the backend, an admin dashboard gives the client visibility into orders and the ability to manage product listings. Firebase handles auth; Nodemailer sends transactional order confirmation emails.</p>
+  <div class="flex flex-wrap gap-x-3 gap-y-1 text-[11px] font-mono uppercase text-gray-500 pt-2">
+    <span>Next.js</span><span>·</span><span>Prisma</span><span>·</span><span>Supabase / Postgres</span><span>·</span><span>Stripe</span><span>·</span><span>Firebase Auth</span><span>·</span><span>Nodemailer</span><span>·</span><span>Vercel</span>
+  </div>
+</section>
+
+<!-- System map -->
+<section class="space-y-6">
+  <h2 class="text-2xl font-headline font-bold">System Breakdown</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="bg-surface-container-low border border-outline-variant/20 p-6">
+      <div class="text-xs font-mono text-primary uppercase tracking-widest mb-2">Product Catalogue</div>
+      <p class="text-sm text-gray-400 leading-relaxed">Filterable wig gallery with colour, length, and style filters — all driven from the Prisma/Supabase database.</p>
+    </div>
+    <div class="bg-surface-container-low border border-outline-variant/20 p-6">
+      <div class="text-xs font-mono text-primary uppercase tracking-widest mb-2">Cart &amp; Checkout</div>
+      <p class="text-sm text-gray-400 leading-relaxed">Persistent cart with Stripe payment intent API, webhook handling for order confirmation, and a polished checkout UX.</p>
+    </div>
+    <div class="bg-surface-container-low border border-outline-variant/20 p-6">
+      <div class="text-xs font-mono text-primary uppercase tracking-widest mb-2">Admin Dashboard</div>
+      <p class="text-sm text-gray-400 leading-relaxed">Protected admin panel for viewing and managing orders — built so the client's team can operate it without a developer in the room.</p>
+    </div>
+    <div class="bg-surface-container-low border border-outline-variant/20 p-6">
+      <div class="text-xs font-mono text-primary uppercase tracking-widest mb-2">Transactional Email</div>
+      <p class="text-sm text-gray-400 leading-relaxed">Order confirmations sent automatically via Nodemailer on successful Stripe payment — no manual follow-up needed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Status -->
+<section class="space-y-4 max-w-2xl">
+  <h2 class="text-2xl font-headline font-bold">Current Status</h2>
+  <p class="text-gray-400 text-base md:text-lg leading-relaxed">The build is in active development. Core commerce flows — catalogue, cart, Stripe checkout, and admin — are implemented. Final pre-launch work covers content population, QA across devices, and production deployment. The live URL will be linked here once deployed.</p>
+</section>
+
+<!-- CTA -->
+<section class="bg-surface-container-low border border-outline-variant/20 p-10 md:p-14 text-center space-y-5">
+  <h2 class="text-2xl font-headline font-bold">Need a full commerce system built?</h2>
+  <a href="../index.html#contact" class="inline-block bg-primary text-on-primary py-4 px-10 font-bold uppercase tracking-widest text-sm hover:opacity-90 transition-opacity">Get a Growth Audit</a>
+</section>
+</main>
+<footer class="fixed bottom-0 left-0 w-full z-40 hidden md:flex items-center justify-between px-6 bg-[#1a1b26]/90 backdrop-blur-md border-t border-outline-variant/10 h-9 text-[11px] text-gray-500">
+<span class="font-mono text-[11px] text-emerald-400/70"><span class="text-gray-600">~/samuel $</span> open --for-hire</span>
+<span>© 2026 Samuel Fawole</span>
+</footer>
+<script src="../assets/interactions.js"></script>
+</body></html>

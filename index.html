@@ -57,9 +57,8 @@
 <main class="md:ml-64 mt-14 mb-8 p-6 md:p-16 space-y-32">
 <!-- Hero -->
 <section class="min-h-[80vh] flex flex-col justify-center max-w-3xl" id="home">
-<div class="inline-flex items-center gap-2 self-start mb-6 border border-emerald-500/30 bg-emerald-500/5 px-3 py-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-<span class="text-[11px] font-mono uppercase tracking-widest text-emerald-400">Available for new projects</span>
+<div class="self-start mb-6 font-mono text-[13px] text-emerald-400" id="status-terminal">
+  <span class="text-gray-600 select-none">~/samuel $</span> <span id="typed-status"></span><span class="inline-block w-[7px] h-[13px] bg-emerald-400 align-middle ml-0.5 animate-pulse" id="cursor-blink"></span>
 </div>
 <h1 class="text-4xl md:text-6xl font-headline font-bold text-on-surface leading-[1.1] mb-6">
                 I build systems that make <span class="text-primary">you</span> more money.
@@ -80,7 +79,7 @@
 <div class="text-xs text-gray-500 uppercase tracking-wide leading-relaxed">AI sales agent qualifying real leads in production</div>
 </div>
 <div>
-<div class="text-2xl md:text-3xl font-headline font-bold text-primary mb-1">4</div>
+<div class="text-2xl md:text-3xl font-headline font-bold text-primary mb-1">7</div>
 <div class="text-xs text-gray-500 uppercase tracking-wide leading-relaxed">Shipped client products, real businesses</div>
 </div>
 <div>
@@ -138,6 +137,33 @@
 <p class="text-sm text-gray-400 leading-relaxed">Portfolio + 6 brand case studies built for a freelance designer, now used to close new work.</p>
 </div>
 <div class="mt-6 text-[11px] font-mono uppercase text-gray-500">Custom design system</div>
+</a>
+<!-- NEW: Mohair -->
+<div class="bg-surface-container-low border border-outline-variant/20 p-8 flex flex-col justify-between opacity-75">
+<div>
+<span class="text-[11px] font-mono text-amber-400 uppercase tracking-wide">In progress</span>
+<h3 class="text-xl font-headline font-bold mt-3 mb-3">Mohair Luxury Wigs</h3>
+<p class="text-sm text-gray-400 leading-relaxed">Full e-commerce store for a luxury wig brand — catalogue, cart, Stripe checkout, and order management all in one system.</p>
+</div>
+<a href="projects/mohair.html" class="mt-6 text-[11px] font-mono uppercase text-gray-500 hover:text-primary transition-colors inline-flex items-center gap-1">Next.js · Prisma · Stripe · Supabase <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<!-- NEW: Her Social Network -->
+<a href="projects/hersocialnetwork.html" class="bg-surface-container-low border border-outline-variant/20 hover:border-primary/50 transition-colors p-8 flex flex-col justify-between">
+<div>
+<span class="text-[11px] font-mono text-emerald-400 uppercase tracking-wide">Live · UK charity</span>
+<h3 class="text-xl font-headline font-bold mt-3 mb-3">Her Social Network</h3>
+<p class="text-sm text-gray-400 leading-relaxed">Digital home for a women's empowerment CIC in Luton &amp; Bedfordshire — events, newsletter sign-up, and community programmes.</p>
+</div>
+<div class="mt-6 text-[11px] font-mono uppercase text-gray-500">Next.js · Supabase · Tailwind</div>
+</a>
+<!-- NEW: Kbee Beauty Studio -->
+<a href="projects/kbee.html" class="bg-surface-container-low border border-outline-variant/20 hover:border-primary/50 transition-colors p-8 flex flex-col justify-between">
+<div>
+<span class="text-[11px] font-mono text-emerald-400 uppercase tracking-wide">Live · UK</span>
+<h3 class="text-xl font-headline font-bold mt-3 mb-3">Kbee Beauty Studio</h3>
+<p class="text-sm text-gray-400 leading-relaxed">Photography booking site for a UK family &amp; maternity photographer — gallery, session booking, and client testimonials.</p>
+</div>
+<div class="mt-6 text-[11px] font-mono uppercase text-gray-500">Next.js · Tailwind · Vercel</div>
 </a>
 </div>
 </section>
@@ -278,7 +304,7 @@
 </main>
 <!-- Footer -->
 <footer class="fixed bottom-0 left-0 w-full z-40 hidden md:flex items-center justify-between px-6 bg-[#1a1b26]/90 backdrop-blur-md border-t border-outline-variant/10 h-9 text-[11px] text-gray-500">
-<span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Available for new projects</span>
+<span class="font-mono text-[11px] text-emerald-400/70"><span class="text-gray-600">~/samuel $</span> open --for-hire</span>
 <span>© 2026 Samuel Fawole</span>
 </footer>
 <!-- Mobile Navigation (visible on small screens) -->
@@ -289,4 +315,39 @@
 <a class="text-gray-400" href="#contact"><span class="material-symbols-outlined">mail</span></a>
 </nav>
 <script src="assets/interactions.js"></script>
+<script>
+  // Terminal typewriter for status badge
+  (function() {
+    const phrases = [
+      'open --for-hire',
+      'taking --new-projects',
+      'ship --something-great',
+    ];
+    let phraseIdx = 0, charIdx = 0, deleting = false;
+    const el = document.getElementById('typed-status');
+    const cursor = document.getElementById('cursor-blink');
+    if (!el) return;
+    function tick() {
+      const phrase = phrases[phraseIdx];
+      if (!deleting) {
+        el.textContent = phrase.slice(0, ++charIdx);
+        if (charIdx === phrase.length) {
+          deleting = true;
+          setTimeout(tick, 2200);
+          return;
+        }
+      } else {
+        el.textContent = phrase.slice(0, --charIdx);
+        if (charIdx === 0) {
+          deleting = false;
+          phraseIdx = (phraseIdx + 1) % phrases.length;
+          setTimeout(tick, 400);
+          return;
+        }
+      }
+      setTimeout(tick, deleting ? 40 : 72);
+    }
+    setTimeout(tick, 800);
+  })();
+</script>
 </body></html>
